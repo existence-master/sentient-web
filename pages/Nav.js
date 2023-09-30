@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,7 @@ const Nav = () => {
       <div className="flex justify-between lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10">
         <div className="flex items-center">
           <Image
-            src="/sentient-web/logo.svg"
+            src="/logo.svg"
             width={0}
             height={0}
             sizes="100vh"
@@ -23,8 +23,11 @@ const Nav = () => {
           </span>
         </div>
         <div>
-          <Link href="#earlyAdopter" >
-            <motion.button whileHover={{ scale: 1.2, transition: { duration: 0.5 } }} className="bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white">
+          <Link href="#earlyAdopter">
+            <motion.button
+              whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+              className="bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white"
+            >
               interested?
             </motion.button>
           </Link>
