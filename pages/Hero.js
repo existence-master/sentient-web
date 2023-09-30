@@ -29,7 +29,7 @@ const Hero = () => {
       <section>
             <motion.div style={{opacity:imageOpacity, scale:imageScale}} ref={heroImageRef} className="relative">
                 <Image
-                src="/hero-blob.svg"
+                src="/sentient-web/hero-blob.svg"
                 width={0}
                 height={0}
                 sizes="100vh"
@@ -37,7 +37,7 @@ const Hero = () => {
                 alt="Hero Blob"
                 />
                 <Image
-                src="/human-robot-handshake.png"
+                src="/sentient-web/human-robot-handshake.png"
                 width={0}
                 height={0}
                 sizes="100vh"

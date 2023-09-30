@@ -87,7 +87,7 @@ const Footer = () => {
       </div>
       <div className="text-center relative">
         <Image
-          src="/footer-blob.svg"
+          src="/sentient-web/footer-blob.svg"
           width={0}
           height={0}
           sizes="100vh"

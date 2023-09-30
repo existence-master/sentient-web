@@ -8,42 +8,42 @@ const Features = () => {
   const features = [
     {
       id: 1,
-      image: "/friendly.png",
+      image: "/sentient-web/friendly.png",
       name: "friendly",
       description:
         "chat, share and laugh together with your new companion anytime",
     },
     {
       id: 2,
-      image: "/automate-your-life.png",
+      image: "/sentient-web/automate-your-life.png",
       name: "automate your life",
       description:
         "let your friend handle your tasks while you focus on bigger things",
     },
     {
       id: 3,
-      image: "/dedicated-to-you.png",
+      image: "/sentient-web/dedicated-to-you.png",
       name: "dedicated to you",
       description:
         "have that one buddy in life who helps you achieve your maximum capacity",
     },
     {
       id: 4,
-      image: "/secure.png",
+      image: "/sentient-web/secure.png",
       name: "secure",
       description:
         "we don’t see your data so your data remains between you and your AI",
     },
     {
       id: 5,
-      image: "/hassle-free.png",
+      image: "/sentient-web/hassle-free.png",
       name: "hassle free",
       description:
         "we use the knowledge from the services you already use so no extra efforts from your side",
     },
     {
       id: 6,
-      image: "/pay-per-use.png",
+      image: "/sentient-web/pay-per-use.png",
       name: "pay per use",
       description:
         "pay your AI a fixed amount and watch it do your tasks in a jiffy",

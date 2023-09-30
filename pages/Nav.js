@@ -11,7 +11,7 @@ const Nav = () => {
       <div className="flex justify-between lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10">
         <div className="flex items-center">
           <Image
-            src="/logo.svg"
+            src="/sentient-web/logo.svg"
             width={0}
             height={0}
             sizes="100vh"
