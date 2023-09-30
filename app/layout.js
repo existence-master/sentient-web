@@ -29,11 +29,11 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
         <meta
           name="viewport"
-          content="user-scalable=no, width=device-width, initial-scale=1.0"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
         />
       </head>
-      <body className="bg-black overflow-x-hidden">
-        <div className="mt-10">{children}</div>
+      <body className="bg-black">
+        <div className="mt-10 overflow-x-hidden">{children}</div>
       </body>
     </html>
   );

@@ -14,12 +14,13 @@
     "mongoose": "^7.5.3",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "4.36.1",
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest",
-    "@netlify/plugin-nextjs": "4.36.1"
+    "tailwindcss": "latest"
   }
 }
