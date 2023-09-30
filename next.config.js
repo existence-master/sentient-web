@@ -16,7 +16,6 @@ const nextConfig = {
       esmExternals: true
     },
   output: "export",
-  assetPrefix: "/sentient-web/",
   basePath: "/sentient-web"
 }
 
