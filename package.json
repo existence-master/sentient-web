@@ -19,6 +19,7 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "@netlify/plugin-nextjs": "4.36.1"
   }
 }
