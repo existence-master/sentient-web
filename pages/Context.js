@@ -49,8 +49,8 @@ const Context = () => {
         <section>
             <div className="flex xs:h-screen sm:h-full sm:flex-row xs:flex-col lg:mr-20 sm:mr-16">
                 <motion.div ref={secondContextRef } style={{ x: secondContextX }} className="sm:w-1/2 relative">
-                    <Image src={window?.innerWidth > 640 ? "/context-blob-1.svg" : "/context-blob-1-xs.svg"} width = {0} height={0} sizes="100vh" className="w-screen sm:left-0 sm:right-0" alt="Context Blob 1" />
-                    <Image src={window?.innerWidth > 640 ? "/human-chat.png" : "/human-chat-xs.png"} width={0} height={0} sizes="100vh" className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0" alt="Human Chat" />
+                    <Image src={typeof window != "undefined" ? window.innerWidth > 640 ? "/context-blob-1.svg" : "/context-blob-1-xs.svg" : "/context-blob-1.svg"} width = {0} height={0} sizes="100vh" className="w-screen sm:left-0 sm:right-0" alt="Context Blob 1" />
+                    <Image src={typeof window != "undefined" ? window.innerWidth > 640 ? "/human-chat.png" : "/human-chat-xs.png" : "/human-chat.png"} width={0} height={0} sizes="100vh" className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0" alt="Human Chat" />
                 </motion.div>
                 <motion.div ref={firstContextRef} style={{ x: firstContextX }} className="flex sm:w-1/2 flex-col sm:items-start xs:items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]">
                     <h3 className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] text-white">
@@ -71,8 +71,8 @@ const Context = () => {
                     </h4>
                 </motion.div>
                 <motion.div ref={thirdContextRef} style={{x: thirdContextX}} className="sm:w-1/2 relative">
-                    <Image src={window?.innerWidth > 640 ? "/context-blob-2.svg" : "/context-blob-2-xs.svg"}  width = {0} height={0} sizes="100vh" className="w-screen sm:left-0 sm:right-0" alt="Context Blob 2" />
-                    <Image src={window?.innerWidth > 640 ? "/ai-chat.png" : "/ai-chat-xs.png"} width={0} height={0} sizes="100vh" className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0" alt="AI Chat" />
+                    <Image src={typeof window != "undefined" ? window.innerWidth > 640 ? "/context-blob-2.svg" : "/context-blob-2-xs.svg" : "/context-blob-2.svg"}  width = {0} height={0} sizes="100vh" className="w-screen sm:left-0 sm:right-0" alt="Context Blob 2" />
+                    <Image src={typeof window != "undefined" ? window.innerWidth > 640 ? "/ai-chat.png" : "/ai-chat-xs.png" : "/ai-chat.png"} width={0} height={0} sizes="100vh" className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0" alt="AI Chat" />
                 </motion.div>
             </div>
             <motion.div ref={fifthContextRef} style={{opacity: fifthContextOpacity}} className="flex flex-col">
