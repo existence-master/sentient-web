@@ -19,6 +19,9 @@ const Footer = () => {
       console.log('/////')
       const response = await fetch("/api/add-user", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           email: email,
         }),
@@ -96,11 +99,11 @@ const Footer = () => {
           width={0}
           height={0}
           sizes="100vh"
-          className="z-0 w-screen absolute lg:-bottom-[100px] sm:-bottom-[50px] xs:-bottom-[25px]"
+          className="z-0 w-screen h-auto absolute bottom-0"
           alt="Footer Blob"
         />
-        <div className="relative z-10">
-          <span className="font-Montserrat font-medium sm:text-md xs:text-xs text-white ">
+        <div className="relative z-10 lg:h-[100px] sm:h-[70px] xs:h-[50px]">
+          <span className="font-Montserrat font-medium lg:text-lg sm:text-md xs:text-xs text-white ">
             &copy; Sentient 2023 | All Rights Reserved
           </span>
         </div>
