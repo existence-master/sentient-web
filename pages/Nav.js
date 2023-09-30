@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 const Nav = () => {
   return (
-    <Fragment>
+    <section>
       <div className="flex justify-between lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10">
         <div className="flex items-center">
           <Image
@@ -33,7 +33,25 @@ const Nav = () => {
           </Link>
         </div>
       </div>
-    </Fragment>
+      <div className="sm:hidden h-screen w-full flex justify-center items-center">
+        <span className="text-white font-Poppins text-[50px]">
+          <TypeAnimation
+              sequence={[
+                'scroll',
+                500,
+                'to',
+                500,
+                'the',
+                500,
+                'future',
+                500
+              ]}
+              repeat={Infinity}
+              speed={30}
+              deletionSpeed={30} />
+        </span>  
+      </div>
+    </section>
   );
 };
 

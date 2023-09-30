@@ -15,6 +15,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-type-animation": "^3.1.0",
     "styled-jsx": "^5.1.2"
   },
   "devDependencies": {

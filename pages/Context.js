@@ -74,31 +74,35 @@ const Context = () => {
           className="sm:w-1/2 relative"
         >
           <Image
-            src={
-              typeof window != "undefined"
-                ? window.innerWidth > 640
-                  ? "/context-blob-1.svg"
-                  : "/context-blob-1-xs.svg"
-                : "/context-blob-1.svg"
-            }
+            src="/context-blob-1.svg"
             width={0}
             height={0}
             sizes="100vh"
-            className="w-screen sm:left-0 sm:right-0"
+            className="w-screen xs:max-sm:hidden sm:left-0 sm:right-0"
             alt="Context Blob 1"
           />
           <Image
-            src={
-              typeof window != "undefined"
-                ? window.innerWidth > 640
-                  ? "/human-chat.png"
-                  : "/human-chat-xs.png"
-                : "/human-chat.png"
-            }
+            src="/context-blob-1-xs.svg"
             width={0}
             height={0}
             sizes="100vh"
-            className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0"
+            className="w-screen sm:hidden"
+            alt="Context Blob 1"
+          />
+          <Image
+            src="/human-chat.png"
+            width={0}
+            height={0}
+            sizes="100vh"
+            className="w-screen xs:max-sm:hidden absolute sm:left-0 lg:top-[150px] sm:top-[100px]"
+            alt="Human Chat"
+          />
+          <Image
+            src="/human-chat-xs.png"
+            width={0}
+            height={0}
+            sizes="100vh"
+            className="w-screen sm:hidden absolute top-0"
             alt="Human Chat"
           />
         </motion.div>
@@ -134,31 +138,35 @@ const Context = () => {
           className="sm:w-1/2 relative"
         >
           <Image
-            src={
-              typeof window != "undefined"
-                ? window.innerWidth > 640
-                  ? "/context-blob-2.svg"
-                  : "/context-blob-2-xs.svg"
-                : "/context-blob-2.svg"
-            }
+            src="/context-blob-2.svg"
             width={0}
             height={0}
             sizes="100vh"
-            className="w-screen sm:left-0 sm:right-0"
+            className="w-screen xs:max-sm:hidden sm:left-0 sm:right-0"
             alt="Context Blob 2"
           />
           <Image
-            src={
-              typeof window != "undefined"
-                ? window.innerWidth > 640
-                  ? "/ai-chat.png"
-                  : "/ai-chat-xs.png"
-                : "/ai-chat.png"
-            }
+            src="/context-blob-2-xs.svg"
             width={0}
             height={0}
             sizes="100vh"
-            className="w-screen absolute sm:left-0 lg:top-[150px] sm:top-[100px] xs:top-0"
+            className="w-screen sm:hidden"
+            alt="Context Blob 2"
+          />
+          <Image
+            src="/ai-chat.png"
+            width={0}
+            height={0}
+            sizes="100vh"
+            className="w-screen xs:max-sm:hidden absolute sm:left-0 lg:top-[150px] sm:top-[100px]"
+            alt="AI Chat"
+          />
+          <Image
+            src="/ai-chat-xs.png"
+            width={0}
+            height={0}
+            sizes="100vh"
+            className="w-screen sm:hidden absolute top-0"
             alt="AI Chat"
           />
         </motion.div>
@@ -166,7 +174,7 @@ const Context = () => {
       <motion.div
         ref={fifthContextRef}
         style={{ opacity: fifthContextOpacity }}
-        className="flex flex-col"
+        className="flex flex-col xs:max-sm:h-screen justify-center items-center"
       >
         <div className="relative">
           <Image
