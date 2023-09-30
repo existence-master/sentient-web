@@ -1,7 +1,7 @@
 "use client"
 
 import { useScroll, motion, useTransform } from "framer-motion";
-import { Fragment, useRef } from "react";
+import { useRef } from "react";
 
 const Steps = () => {
   const firstTextRef = useRef()
