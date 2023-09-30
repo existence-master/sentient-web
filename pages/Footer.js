@@ -16,18 +16,20 @@ const Footer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log('/////')
       const response = await fetch("/api/add-user", {
         method: "POST",
         body: JSON.stringify({
           email: email,
         }),
       });
-
+      console.log('/////')
       if (response.status == 201) {
         setError(null);
         setSubmit(true);
       } else {
         const errorMessage = await response.text();
+        console.log(errorMessage)
         throw new Error(errorMessage);
       }
     } catch (error) {
