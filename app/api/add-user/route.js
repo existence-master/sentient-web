@@ -10,8 +10,6 @@ export const POST = async (req) => {
         })
         await earlyAdopter.save()
 
-        console.log(earlyAdopter)
-
         return new Response(JSON.stringify(earlyAdopter), {status: 201})
     }
     catch (error) {
@@ -23,7 +21,6 @@ export const POST = async (req) => {
             errorMessage = "You have already joined the waitlist"
         }
 
-        console.log(errorMessage)
         return new Response(errorMessage, { status: 401 })
 
     }
