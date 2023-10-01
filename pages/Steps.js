@@ -31,7 +31,7 @@ const Steps = () => {
 
   return (
     <section>
-      <div className="flex flex-col lg:gap-[70px] sm:gap-[50px] xs:gap-[30px] lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10 h-[50vh] justify-center">
+      <div className="flex flex-col lg:gap-[70px] sm:gap-[50px] xs:gap-[30px] lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10 xs:max-sm:h-[50vh] sm:h-[150vh] justify-center">
         <motion.h3 ref={firstTextRef} style={{ x: firstTextX }} className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] sm:text-left xs:text-center text-white">
           quick signup
         </motion.h3>
