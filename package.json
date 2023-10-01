@@ -19,7 +19,7 @@
     "styled-jsx": "^5.1.2"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "4.40.1",
+    "@netlify/plugin-nextjs": "^4.40.1",
     "autoprefixer": "latest",
     "postcss": "latest",
     "tailwindcss": "latest"
