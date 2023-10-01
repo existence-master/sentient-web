@@ -1,5 +1,4 @@
 import "@styles/globals.css";
-import StyledJsxRegistry from "./registry";
 
 export const metadata = {
   title: "Sentient",
@@ -34,9 +33,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-black">
-        <StyledJsxRegistry>
-          <div className="mt-10 overflow-x-hidden">{children}</div>
-        </StyledJsxRegistry>
+          <div className="mt-10 overflow-x-hidden">{children}</div>  
       </body>
     </html>
   );

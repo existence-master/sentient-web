@@ -1,5 +1,3 @@
-"use client"
-
 import Context from "@pages/Context"
 import Evolution from "@pages/Evolution"
 import Features from "@pages/Features"
