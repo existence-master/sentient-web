@@ -8,7 +8,7 @@ const Context = () => {
   const firstContextRef = useRef();
   const firstContextScroll = useScroll({
     target: firstContextRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
 
   const firstContextX = useTransform(
@@ -20,7 +20,7 @@ const Context = () => {
   const secondContextRef = useRef();
   const secondContextScroll = useScroll({
     target: secondContextRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
 
   const secondContextX = useTransform(
@@ -32,7 +32,7 @@ const Context = () => {
   const thirdContextRef = useRef();
   const thirdContextScroll = useScroll({
     target: thirdContextRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
 
   const thirdContextX = useTransform(
@@ -44,7 +44,7 @@ const Context = () => {
   const fourthContextRef = useRef();
   const fourthContextScroll = useScroll({
     target: fourthContextRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
 
   const fourthContextX = useTransform(
@@ -56,7 +56,7 @@ const Context = () => {
   const fifthContextRef = useRef();
   const fifthContextScroll = useScroll({
     target: fifthContextRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
 
   const fifthContextOpacity = useTransform(
@@ -67,7 +67,7 @@ const Context = () => {
 
   return (
     <section>
-      <div className="flex xs:h-screen sm:h-full sm:flex-row xs:flex-col lg:mr-20 sm:mr-16">
+      <div className="flex h-full sm:flex-row xs:flex-col lg:mr-20 sm:mr-16">
         <motion.div
           ref={secondContextRef}
           style={{ x: secondContextX }}
@@ -119,7 +119,7 @@ const Context = () => {
           </h4>
         </motion.div>
       </div>
-      <div className="flex xs:h-screen sm:h-full sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16">
+      <div className="flex h-full sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16">
         <motion.div
           ref={fourthContextRef}
           style={{ x: fourthContextX }}
@@ -174,7 +174,7 @@ const Context = () => {
       <motion.div
         ref={fifthContextRef}
         style={{ opacity: fifthContextOpacity }}
-        className="flex flex-col xs:max-sm:h-screen justify-center items-center"
+        className="flex flex-col xs:max-sm:h-screen sm:h-full justify-center items-center"
       >
         <div className="relative">
           <Image

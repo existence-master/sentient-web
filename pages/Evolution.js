@@ -48,7 +48,7 @@ const Evolution = () => {
     <section>
       <div
         ref={firstTextRef}
-        className="flex items-center justify-center h-screen"
+        className="flex items-center justify-center h-[50vh]"
       >
         <motion.h1
           variants={sentence}
@@ -85,7 +85,7 @@ const Evolution = () => {
       </div>
       <div
         ref={secondTextRef}
-        className="flex items-center justify-center h-screen"
+        className="flex items-center justify-center h-[50vh]"
       >
         <motion.h1
           variants={sentence}
