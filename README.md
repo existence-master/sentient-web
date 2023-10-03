@@ -2,6 +2,12 @@
 
 The official web platform of Sentient. Currently, just a landing page to showcase the concept and attract early adopters
 
+## Progress 
+
+- [x] https://github.com/existence-sentient/sentient-web/issues/4
+- [ ] https://github.com/existence-sentient/sentient-web/issues/5
+- [ ] https://github.com/existence-sentient/sentient-web/issues/6
+
 ## Wanna be an early adopter?
 
 Visit the site and enter your email in the section at the bottom. Congrats, you just joined the waitlist
