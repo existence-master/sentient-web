@@ -1,3 +1,5 @@
+![Github Web Banner](/public/banner.png)
+
 The official web platform of Sentient. Currently, just a landing page to showcase the concept and attract early adopters
 
 ## Wanna be an early adopter?
