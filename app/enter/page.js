@@ -1,4 +1,4 @@
-const { default: Nav } = require("@components/Nav")
+import Nav from "@components/Nav"
 
 const Warning = () => {
     return (
