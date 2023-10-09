@@ -3,7 +3,7 @@ import Evolution from "@pages/Evolution"
 import Features from "@pages/Features"
 import Footer from "@pages/Footer"
 import Hero from "@pages/Hero"
-import Nav from "@pages/Nav"
+import Nav from "@components/Nav"
 import Steps from "@pages/Steps"
 import { Fragment } from "react"
 
