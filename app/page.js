@@ -1,11 +1,11 @@
-import Context from "@pages/Context"
-import Evolution from "@pages/Evolution"
-import Features from "@pages/Features"
-import Footer from "@pages/Footer"
-import Hero from "@pages/Hero"
-import Nav from "@pages/Nav"
-import Steps from "@pages/Steps"
-import { Fragment } from "react"
+import Context from "@pages/Context";
+import Evolution from "@pages/Evolution";
+import Features from "@pages/Features";
+import Footer from "@pages/Footer";
+import Hero from "@pages/Hero";
+import Nav from "@components/Nav";
+import Steps from "@pages/Steps";
+import { Fragment } from "react";
 
 const Home = () => {
   return (
@@ -16,9 +16,9 @@ const Home = () => {
       <Steps />
       <Evolution />
       <Features />
-      <Footer /> 
+      <Footer />
     </Fragment>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

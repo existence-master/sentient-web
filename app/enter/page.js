@@ -1,4 +1,4 @@
-const { default: Nav } = require("@pages/Nav")
+const { default: Nav } = require("@components/Nav")
 
 const Warning = () => {
     return (
