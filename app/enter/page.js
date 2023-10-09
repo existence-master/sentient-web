@@ -1,1 +1,5 @@
-const Heads
+const Warning = () => {
+    return (
+        
+    )
+}
