@@ -2,6 +2,7 @@ import Nav from "@components/Nav"
 
 const Warning = () => {
     return (
-        <Nav action=
+        <Nav action="none" />
+        
     )
 }
