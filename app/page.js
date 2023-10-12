@@ -10,7 +10,7 @@ import { Fragment } from "react"
 const Home = () => {
   return (
     <Fragment>
-      <Nav />
+      <Nav action={true} />
       <Hero />
       <Context />
       <Steps />
