@@ -1,17 +1,29 @@
+"use client"
+
 import Nav from "@components/Nav"
 import { h1, button } from "@utils/styles"
 import Image from "next/image"
-import { signIn, signOut, useSession, getProviders, } from "next-auth/react"
+import { signIn, useSession, getProviders } from "next-auth/react"
+import { Fragment, useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 const Enter = () => {
+    const router = useRouter()
+    const { data: session } = useSession()
     const [providers, setProviders] = useState(null)
+
     useEffect(() => {
         const setupProviders = async () => {
             const response = await getProviders()
+            console.log(response)
             setProviders(response)
         }
         setupProviders()
     }, [])
+
+    useEffect(() => {
+        session && router.push("/connect")
+    }, [session])
 
     return (
         <section className="h-screen w-screen">
@@ -27,15 +39,12 @@ const Enter = () => {
                     <Fragment>
                             {providers && 
                                 Object.values(providers).map((provider) => (
-                                    <button type="button" onClick={() => signIn(provider.id)} key={provider.name} className="black_btn">
+                                <button type="button" onClick={() => signIn(provider.id)} key={provider.name} className={`${button} bg-white text-black`}>
                                     {`Login/Signup With ${provider.name}`} 
                                 </button>
                                 ))
                             }
                     </Fragment>
-                    <button className={`${button} bg-white text-black`}>
-                        
-                    </button>
                 </div>
             </div>
         </section>
