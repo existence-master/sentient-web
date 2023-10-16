@@ -10,35 +10,26 @@ const Connect = () => {
     const router = useRouter()
     const [error, setError] = useState(null)
     const [linkedInConnect, setLinkedInConnect] = useState(false)
-    const [linkedInEmail, setLinkedInEmail] = useState(null)
-    const [linkedInPassword, setLinkedInPassword] = useState(null)
+    const [file, setFile] =  useState(null)
 
     const handleClick = () => {
         setLinkedInConnect(true)
     }
 
-    const handleEmailChange = (e) => {
-        setLinkedInEmail(e.target.value)
-    }
-
-    const handlePasswordChange = (e) => {
-        setLinkedInPassword(e.target.value)
+    const handleChange = (e) => {
+        setFile(e.target.files[0])
     }
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
         e.stopPropagation()
+        const formData = new FormData()
+        formData.append('file', file, file.name)
+
         try {
             const response = await fetch("http://localhost:5000/linkedin-connect", {
                 method: "POST",
-                mode: "cors",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: linkedInEmail,
-                    password: linkedInPassword
-                })
+                body: formData
             })
             
             if (response.status == 200) {
@@ -72,30 +63,12 @@ const Connect = () => {
                     </h2>
                     {linkedInConnect ? (
                         <Fragment>
-                            <form method="POST" action={handleFormSubmit}>
-                                <label htmlFor="email" className={`${h3} text-white`}>
-                                    Enter your LinkedIn email
+                            <form onSubmit={handleFormSubmit}>
+                                <label htmlFor="upload" className={`${h3} text-white`}>
+                                    Upload your LinkedIn profile
                                 </label>
                                 <div className="flex-auto sm:p-1 xs:p-0.5 w-full bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] rounded-[12px]">
-                                    <input
-                                        type="text"
-                                        name="email"
-                                        placeholder="your email here"
-                                        className="font-Montserrat w-full font-light lg:text-lg sm:text-md xs:text-sm lg:p-4 sm:p-3 xs:p-2 bg-black text-gray-300 rounded-[12px]"
-                                        onChange={handleEmailChange}
-                                    />
-                                </div>
-                                <label htmlFor="password" className={`${h3} text-white`}>
-                                    Enter your LinkedIn password
-                                </label>
-                                <div className="flex-auto sm:p-1 xs:p-0.5 w-full bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] rounded-[12px]">
-                                    <input
-                                        type="text"
-                                        name="password"
-                                        placeholder="your password here"
-                                        className="font-Montserrat w-full font-light lg:text-lg sm:text-md xs:text-sm lg:p-4 sm:p-3 xs:p-2 bg-black text-gray-300 rounded-[12px]"
-                                        onChange={handlePasswordChange}
-                                    />
+                                <input type="file" name="file" onChange={handleChange} />
                                 </div>
                                 <button type="submit" className={`${button} bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] text-white`}>
                                     connect linkedin
@@ -103,6 +76,10 @@ const Connect = () => {
                             </form>
                         </Fragment>
                        
+                    ) : error !== null ? (
+                            <div>
+                                {error}
+                            </div>
                     ) : (
                             <Fragment>
                                 <h3 className = {`${h3} text-white`}>
