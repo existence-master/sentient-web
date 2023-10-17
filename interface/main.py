@@ -1,17 +1,20 @@
 import chat
+from utils import *
 import firebase_admin
 from PIL import Image
 import streamlit as st
 import linkedin_connect
 from firebase_admin import credentials, auth
 
-if not firebase_admin._apps:
+try:
     cred = credentials.Certificate("secrets/firebase.json")
     firebase_admin.initialize_app(cred)
+except: 
+    pass
 
 if 'db' not in st.session_state:
     st.session_state.db = None
-    
+
 if 'username' not in st.session_state:
     st.session_state.username = ""
 
@@ -42,8 +45,8 @@ def app():
                 st.session_state.username = user.uid
                 st.session_state.runpage = chat.app
                 st.rerun()
-            except:
-                st.warning("Couldn't login, please try again")
+            except Exception as e:
+                st.warning(e)
             
     else :
         username = st.text_input("Username : ")
@@ -54,10 +57,13 @@ def app():
                 user = auth.create_user(email = email, password = password, uid = username)
                 st.success("Account created successfully")
                 st.session_state.username = user.uid
+                # db = get_db()
+                # data = get_user_data(st.session_state.linked_profile, st.session_state.chat_history)
+                # db.collections('users').document(user.uid).set(data)
                 st.session_state.runpage = linkedin_connect.app
                 st.rerun()
-            except:
-                st.warning("Couldn't signup, please try again")
+            except Exception as e:
+                st.warning(e)
 
 if __name__ == "__main__":
     if 'runpage' not in st.session_state:

@@ -1,3 +1,6 @@
+import firebase_admin
+import streamlit as st
+from firebase_admin import firestore
 from langchain.llms import CTransformers
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
@@ -27,3 +30,9 @@ def create_vector_store(text_chunks, embeddings):
 def create_llms_model():
     llm = CTransformers(model="TheBloke/Mistral-7B-v0.1-GGUF", config={'max_new_tokens': 128, 'temperature': 0.01})
     return llm
+
+def get_db():
+    firebase_admin.get_app()
+    db = firestore.client()
+    st.session_state.db = db
+    return db
