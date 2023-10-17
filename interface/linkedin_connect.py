@@ -18,16 +18,21 @@ def app():
             st.title("Sentient")
     
     linkedin_profile = st.file_uploader("Upload your LinkedIn profile", type=["pdf"])
+
     if linkedin_profile is not None:
         st.session_state.linkedin_profile = linkedin_profile
-        os.mkdir(st.session_state.username)
+        try:
+            os.mkdir(st.session_state.username)
+        except FileExistsError as e:
+            pass
+
         filepath = os.path.join(st.session_state.username, "linkedin-profile.pdf")
         with open(filepath,"wb") as f: 
             f.write(linkedin_profile.getbuffer())     
     
     if st.button("Submit"):
         try:
-            bucket = storage.bucket("gs://mvp-development-401805.appspot.com/")
+            bucket = storage.bucket("mvp-development-401805.appspot.com")
             blob = bucket.blob(filepath)
             blob.upload_from_filename(filepath)
         except Exception as e:
