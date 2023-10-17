@@ -220,3 +220,6 @@ next-env.d.ts
 # Ignore all local history of files
 .history
 .ionide
+
+#Custom folders
+secrets
