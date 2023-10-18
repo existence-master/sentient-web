@@ -1,13 +1,11 @@
 import os
+import chat
 from firebase_admin import storage
 import streamlit as st
 from PIL import Image
 from utils import *
 
 def app():
-    # if st.session_state.db == None:
-    #     get_db()
-
     title_container = st.container()
     col1, col2 = st.columns([5,20])
     image = Image.open("assets/logo.png")
@@ -32,8 +30,10 @@ def app():
     
     if st.button("Submit"):
         try:
-            bucket = storage.bucket("mvp-development-401805.appspot.com")
+            bucket = st.session_state.bucket
             blob = bucket.blob(filepath)
             blob.upload_from_filename(filepath)
+            st.session_state.runpage = chat.app
+            st.rerun()
         except Exception as e:
             st.warning(e)

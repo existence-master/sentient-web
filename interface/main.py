@@ -4,7 +4,7 @@ import firebase_admin
 from PIL import Image
 import streamlit as st
 import linkedin_connect
-from firebase_admin import credentials, auth
+from firebase_admin import credentials, auth, firestore, storage
 
 try:
     cred = credentials.Certificate("secrets/firebase.json")
@@ -13,13 +13,17 @@ except:
     pass
 
 if 'db' not in st.session_state:
-    st.session_state.db = None
+    db = firestore.client()
+    st.session_state.db = db
+
+if 'bucket' not in st.session_state:
+    st.session_state.bucket = storage.bucket("mvp-development-401805.appspot.com")
 
 if 'username' not in st.session_state:
     st.session_state.username = ""
 
 if 'chat_history' not in st.session_state:
-    st.session_state.chat_history = []
+    st.session_state.chat_history = None
 
 if 'linkedin_profile' not in st.session_state:
     st.session_state.linkedin_profile = None    
@@ -47,7 +51,6 @@ def app():
                 st.rerun()
             except Exception as e:
                 st.warning(e)
-            
     else :
         username = st.text_input("Username : ")
         email = st.text_input("Email :")
@@ -57,9 +60,6 @@ def app():
                 user = auth.create_user(email = email, password = password, uid = username)
                 st.success("Account created successfully")
                 st.session_state.username = user.uid
-                # db = get_db()
-                # data = get_user_data(st.session_state.linked_profile, st.session_state.chat_history)
-                # db.collections('users').document(user.uid).set(data)
                 st.session_state.runpage = linkedin_connect.app
                 st.rerun()
             except Exception as e:

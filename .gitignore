@@ -223,3 +223,4 @@ next-env.d.ts
 
 #Custom folders
 secrets
+models
