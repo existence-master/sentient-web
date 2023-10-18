@@ -26,7 +26,13 @@ if 'chat_history' not in st.session_state:
     st.session_state.chat_history = None
 
 if 'linkedin_profile' not in st.session_state:
-    st.session_state.linkedin_profile = None    
+    st.session_state.linkedin_profile = None  
+
+if 'ai_chat' not in st.session_state:
+        st.session_state['ai_chat'] = []
+
+if 'user_chat' not in st.session_state:
+        st.session_state['user_chat'] = []  
 
 def app():
     title_container = st.container()
@@ -47,6 +53,16 @@ def app():
                 user = auth.get_user_by_email(email = email)
                 st.success("Login successful")
                 st.session_state.username = user.uid
+                db = st.session_state.db
+                st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
+                chat_history = db.collection("chat_histories").document(st.session_state.username).get().to_dict()
+
+                for message in chat_history["messages"] :
+                    if message["type"] == "human":
+                        st.session_state.user_chat.append(message["data"]["content"])
+                    else:
+                        st.session_state.ai_chat.append(message["data"]["content"])
+
                 st.session_state.runpage = chat.app
                 st.rerun()
             except Exception as e:

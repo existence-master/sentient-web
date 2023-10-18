@@ -1,6 +1,4 @@
-import datetime
 import streamlit as st
-from firebase_admin import firestore
 from langchain.llms import CTransformers
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
@@ -33,7 +31,8 @@ def create_llm_model():
     return llm
 
 def create_conversation_memory():
-    st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
+    if st.session_state.chat_history == None:
+        st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
     memory = ConversationBufferMemory(memory_key="chat_history", chat_memory = st.session_state.chat_history, return_messages=True)
     return memory
 

@@ -18,11 +18,11 @@ def app():
     vector_store = create_vector_store(text_chunks, embeddings)
     llm = create_llm_model()
 
-    if 'ai_chat' not in st.session_state:
-        st.session_state['ai_chat'] = ["Hey there"]
-
-    if 'user_chat' not in st.session_state:
+    if st.session_state.user_chat == []:
         st.session_state['user_chat'] = ["Hey"]
+
+    if st.session_state.ai_chat == []:
+        st.session_state['ai_chat'] = ["Hey there"]
 
     memory = create_conversation_memory()
     chain = create_conversation_chain(llm = llm, vector_store = vector_store, memory = memory)
