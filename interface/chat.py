@@ -12,17 +12,17 @@ def app():
         with col2:
             st.title("Sentient")
     
+    with st.sidebar:
+        if st.button("Logout"):
+            for key in st.session_state.keys():
+                del st.session_state[key]
+            st.rerun()
+    
     documents = load_documents()
     text_chunks = split_text_into_chunks(documents)
     embeddings = create_embeddings()
     vector_store = create_vector_store(text_chunks, embeddings)
     llm = create_llm_model()
-
-    if st.session_state.user_chat == []:
-        st.session_state['user_chat'] = ["Hey"]
-
-    if st.session_state.ai_chat == []:
-        st.session_state['ai_chat'] = ["Hey there"]
 
     memory = create_conversation_memory()
     chain = create_conversation_chain(llm = llm, vector_store = vector_store, memory = memory)
