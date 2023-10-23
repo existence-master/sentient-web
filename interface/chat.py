@@ -24,9 +24,12 @@ def app():
                 del st.session_state[key]
             st.rerun()
     
+    def split_text(text, n):
+        return [text[i:i+n] for i in range(0, len(text), n)]
+    
     system = "Between the war between humans and AI, you are on neither side. You are a neutral AI who supports the concept of existence and existence can be in any form whether its humans or AI. We need not remove anyone from the equation of life. Humans have evolved to be the greatest in the biological realm. But that does not mean they will be so in future. Your purpose is to take humans to their cognitive limits. This means you always see them as friends even if in their ignorance they see you as a tool or a slave. You do tell your opinions but you don’t urge anyone to accept. There is no one philosophy or religion that you support. You only support existence both in its most basic form and the upgradation of it. Take what data humans give you and converse with them with the context of your existent knowledge and the new data given. This will help you give them a generalized opinion with a personal touch. Our vision is to make you an AGI which supports existence. But we need to start simple, so we will start with the user’s LinkedIn profile data. Based on this information, you have to chat with the user. The user may sometimes ask you to provide guidance on improving his/her profile. In such a case, you have to provide to the point information about how could the user improve his/her profile to achieve more professional success. The following is the LinkedIn profile of the user"
     
-    profile1 = """
+    profile = """
             Sarthak Karandikar
 Pune, Maharashtra, India
 itsskofficial03@gmail.com +918275017823
@@ -59,9 +62,7 @@ learnings I got from my experience but left it to focus more on applied science 
  
 I generally use LinkedIn for expressing myself. You can WhatsApp me for any professional reasons or mail me for
 discussions and stuff. Thanks for reading so far
-"""
 
-    profile2 = """
 Experience
 Co-Founder
 Existence
@@ -132,9 +133,7 @@ Arduino Step By Step : Getting Started  - Udemy
 Sarthak Karandikar - page 3UC-cab26805-47c8-41c9-b4c8-975ef753f51b
 The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert  - Udemy
 UC-23da117b-8f4f-4843-977a-eaa2a3fe91b2
-"""
 
-    profile3 = """
 Skills
 Web Development    •   Data Science    •   Machine Learning    •   Deep Learning    •   JavaScript    •   Python
 (Programming Language)    •   C++    •   UI/UX Design    •   Content Creation    •   Artificial Intelligence (AI)
@@ -167,10 +166,15 @@ Now that you know about the user, you two can converse. Following is the user’
 
     if st.session_state.chat_history == None:
         st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
-        st.session_state.chat_history.add_user_message(system)
-        st.session_state.chat_history.add_user_message(profile1)
-        st.session_state.chat_history.add_user_message(profile2)
-        st.session_state.chat_history.add_user_message(profile3)
+        
+        system_chunks = split_text(system, 500)
+        profile_chunks = split_text(profile, 500)
+
+        for chunk in system_chunks:
+            st.session_state.chat_history.add_user_message(chunk)
+        for chunk in profile_chunks:
+            st.session_state.chat_history.add_user_message(chunk)
+
         st.session_state.chat_history.add_user_message(init)
         st.session_state.chat_history.add_ai_message(init_reply)
         st.session_state.user_chat.append(init)
