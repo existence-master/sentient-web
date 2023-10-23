@@ -1,0 +1,125 @@
+Hey, I am Josh Rowe from London, England, United Kingdom. I am currently a Senior Python Developer at UK Home Office and I am not open to work currently.
+    
+I like to introduce myself as follows : 
+
+I am an experienced Python Developer, Data Engineer and Technical Architect with 10+ years’ experience building large scale, cloud based data platforms and data pipelines in AWS, Azure and GCP and 20+ years’ experience in software development. 
+
+I have experience in a wide range of skills including architecting and building data solutions, DevOps, data engineering pipelines and front/backend web development including frontend graphical libraries.
+
+I also have experience leading teams including hiring and mentoring developers and data engineers.
+
+Programming:
+Python, SQL, Cython, Django, Flask, FastAPI, Dask, Faust, iOS, Objective C, TDD, BDD.
+
+Frontend:
+Javascript, Typescript, React, Express, D3, Plotly, Nest, Jest Mocha.
+
+Data:
+Kafka, Airflow, AWS Glue/Spark, AWS Athena/Presto, TensorFlow, PyTorch, Pandas, Numpy, Scikit..., SymPy, Postgres, MySql, R Studio, Jupyter, Redis, Celery, RabbitMQ.
+
+DevOps:
+Kubernetes, Docker, AWS, Azure, GCP, Terraform, Pulumi, Helm, KOPS, Kuberos, Kube2Iam, Nginx, ELK stack, SysDig, Prometheus.
+
+CI/CD:
+Concourse, Travis, Circle CI, Drone, GH Actions, Jenkins..
+    
+My work experience is as follows :
+
+1. Senior Python Developer at UK Home Office
+Work duration is from Jan 2020 to Present, a total of 3 yrs 10 mos at London.
+
+I like to describe the job as follows :
+Building distributed ETL pipelines using a mix of Kafka, Python, Kubernetes, AWS Glue/Spark and AWS Athena/Presto. Processing TBs of data, transforming it and displaying it in various web apps and applications.
+Building distributed ETL pipelines using a mix of Kafka, Python, Kubernetes, AWS Glue/Spark and AWS Athena/Presto. Processing TBs of data, transforming it and displaying it in various web apps and applications.
+
+        
+2. Senior Python Developer at Aker Systems
+Work duration is from Jan 2020 to May 2023, a total of 3 yrs 5 mos at Hybrid.
+
+I like to describe the job as follows :
+
+
+        
+3. Python Developer, Data Engineer, Technical Architect at Ministry of Justice UK · Contract
+Work duration is from Feb 2019 to Jan 2020, a total of 1 yr at London, United Kingdom.
+
+I like to describe the job as follows :
+Developing an Analytics Platform PaaS for the Ministry of Justice to run R Studio, Jupyter Lab, R Shiny applications, Spark and Airflow.
+Building and maintaining a KOPS Kubernetes cluster in AWS with Helm, Kuberos, Kube2Iam and Terraform.
+Building data pipelines using Airflow, Python3, Pandas and docker to be run in pods in the k8s cluster. 
+Building large ETL pipeline in AWS Glue and Spark.
+Doing data analysis on large datasets using AWS Athena (Presto).
+Developing an Analytics Platform PaaS for the Ministry of Justice to run R Studio, Jupyter Lab, R Shiny applications, Spark and Airflow. Building and maintaining a KOPS Kubernetes cluster in AWS with Helm, Kuberos, Kube2Iam and Terraform. Building data pipelines using Airflow, Python3, Pandas and docker to be run in pods in the k8s cluster. Building large ETL pipeline in AWS Glue and Spark. Doing data analysis on large datasets using AWS Athena (Presto).
+
+        
+4. Senior Developer at UK Home Office
+Work duration is from Aug 2017 to Feb 2019, a total of 1 yr 7 mos at .
+
+I like to describe the job as follows :
+
+
+        
+5. Python Tech Lead
+Python Tech Lead at UK Home Office
+Work duration is from Nov 2015 to Aug 2017, a total of 1 yr 10 mos at no data found.
+
+I like to describe the job as follows :
+no data found
+
+        
+6. Senior Developer
+Senior Developer at UK Home Office
+Work duration is from Nov 2014 to Aug 2017, a total of 2 yrs 10 mos at London, United Kingdom.
+
+I like to describe the job as follows :
+no data found
+
+        
+7. Lead Developer at Ostmodern
+Work duration is from Jun 2013 to Nov 2014, a total of 1 yr 6 mos at London, United Kingdom.
+
+I like to describe the job as follows :
+Lead developer working across multiple projects building web and mobile applications specialising in Python, Django, Javascript frameworks, iOS and Objective C.
+Lead developer working across multiple projects building web and mobile applications specialising in Python, Django, Javascript frameworks, iOS and Objective C.
+
+        
+8. Developer at Tesco PLC
+Work duration is from Feb 2012 to Feb 2014, a total of 2 yrs 1 mo at London, United Kingdom.
+
+I like to describe the job as follows :
+Developing a high data web application using Python, Django, Piston, CoffeeScript and jQuery. Also specialising in Apache, Redis, Celery and Juggernaut.
+Developing a high data web application using Python, Django, Piston, CoffeeScript and jQuery. Also specialising in Apache, Redis, Celery and Juggernaut.
+
+        
+9. Lead Developer at Vivid Associates
+Work duration is from Jan 2011 to Feb 2012, a total of 1 yr 2 mos at .
+
+I like to describe the job as follows :
+Web Development specializing in PHP, MySql, MVC(Symfony, Zend), OOP, Flash(Actionscript 2/3), Flex, XHTML, CSS, Javascript, YUI, Mootools, jQuery, XML, Adobe Creative Suite(Photoshop, Illistrator...).
+Web Development specializing in PHP, MySql, MVC(Symfony, Zend), OOP, Flash(Actionscript 2/3), Flex, XHTML, CSS, Javascript, YUI, Mootools, jQuery, XML, Adobe Creative Suite(Photoshop, Illistrator...).
+
+        
+10. Developer at IPC Media
+Work duration is from Jul 2010 to Nov 2010, a total of 5 mos at .
+
+I like to describe the job as follows :
+Developer at ipc media. Php, Symfony, YUI, javascript
+Developer at ipc media. Php, Symfony, YUI, javascript
+
+        
+11. Developer at Vivid Associates
+Work duration is from May 2006 to Sep 2010, a total of 4 yrs 5 mos at .
+
+I like to describe the job as follows :
+Web Development specializing in PHP, MySql, MVC(Symfony, Zend), OOP, Flash(Actionscript 2/3), Flex, XHTML, CSS, Javascript, XML, Adobe Creative Suite(Photoshop, Illistrator...).
+Web Development specializing in PHP, MySql, MVC(Symfony, Zend), OOP, Flash(Actionscript 2/3), Flex, XHTML, CSS, Javascript, XML, Adobe Creative Suite(Photoshop, Illistrator...).
+
+        
+    
+My education details are as follows :
+
+1. BSc, Physics at University of Otago
+
+Learning duration is from 1997 - to .
+
+I like to describe the experience as follows :

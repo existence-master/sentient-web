@@ -1,0 +1,70 @@
+Hey, I am Abhishek Chaudhari from Pune, Maharashtra, India. I am currently a Associate Consultant at Flo Group · Full-time and I am not open to work currently.
+    
+I like to introduce myself as follows : 
+
+As a dedicated engineer with a Diploma from Government Polytechnic, Aurangabad with percentage of 93.16% and Bachelor's degree from Pune Institute of Computer Technology with a CGPA of 9.4. I am passionate about software development and problem-solving. I have excelled throughout my academic journey. My technical skills include C/C++, Java, SQL, DBMS, Data Structures, OOP, HTML/CSS, JavaScript, Cloud Computing (Basics), and Angular. My interests are focused on developing cutting-edge software solutions that solve complex problems.
+
+During my internships at Internship Studio and CBROZ Centre, I worked on multiple projects, including a CLI based project "Room allocated system based on C++," and finding solutions to programming language problems. In addition, I have completed several projects that have helped me hone my skills as a software developer, such as a Price Comparison Engine that compares product prices from different sites (Python), a Medicare system that helps patients book appointments with doctors (Java & SQL), and a Quadcopter that includes a collision avoidance feature.
+
+I possess a unique blend of technical and soft skills such as teamwork, communication, and problem-solving. As a software developer, my ultimate goal is to work on cutting-edge projects that challenge me to grow and develop my skills. I am excited about the opportunities that lie ahead and am eager to contribute my skills to the computer science industry..
+    
+My work experience is as follows :
+
+1. Associate Consultant at Flo Group · Full-time
+Work duration is from Jul 2023 to Present, a total of 4 mos at India · On-site.
+
+I like to describe the job as follows :
+Skills: Analytical Skills · Logistics Management · OTM · Application Managed Services · Communication
+Skills:Analytical Skills · Logistics Management · OTM · Application Managed Services · Communication
+
+        
+2. Data structure Intern at Internship studio · Internship
+Work duration is from Jan 2022 to Feb 2022, a total of 2 mos at Pune, Maharashtra, India · Remote.
+
+I like to describe the job as follows :
+Got the opportunity from the National Engineering Olympiad exam which was in NOV-2021. And successfully completed the internship by completing the project named "Room allotment and booking system " by using CLI (command Line Version).
+Got the opportunity from the National Engineering Olympiad exam which was in NOV-2021. And successfully completed the internship by completing the project named "Room allotment and booking system " by using CLI (command Line Version).
+Skills: Software Development · Data Structures · C (Programming Language)
+Skills:Software Development · Data Structures · C (Programming Language)
+
+        
+3. Internship Trainee at CBROZ Training, Research & Development · Internship
+Work duration is from May 2019 to Jun 2019, a total of 2 mos at Aurangabad, Maharashtra, India.
+
+I like to describe the job as follows :
+An internship which includes Circuit manufacturing, Microcontroller Burning & Programming Arduino
+An internship which includes Circuit manufacturing, Microcontroller Burning & Programming Arduino
+Skills: Event Planning · Eagle PCB · Arduino IDE
+Skills:Event Planning · Eagle PCB · Arduino IDE
+
+        
+    
+My education details are as follows :
+
+1. Bachelor of Engineering - BE, Electronics and Telecommunication engineering at Pune Institute of Computer Technology
+
+Learning duration is from Jan 2021 to May 2023.
+
+I like to describe the experience as follows :
+
+Grade: 9.4
+Grade: 9.4
+Activities and societies: Member of Art Circle.
+Activities and societies: Member of Art Circle.
+Skills: Object-Oriented Programming (OOP) · Web Development · C (Programming Language) · Software Development · Java · SQL · Front-End Development
+Skills:Object-Oriented Programming (OOP) · Web Development · C (Programming Language) · Software Development · Java · SQL · Front-End Development
+
+        
+2. Diploma, Electronics and telecommunication engineering at Government Polytechnic Aurangabad
+
+Learning duration is from 2017 - to .
+
+I like to describe the experience as follows :
+
+Grade: 93.16
+Grade: 93.16
+Activities and societies: Class Representative.
+ASENT student committee member.
+Activities and societies: Class Representative. ASENT student committee member.
+Skills: Problem Solving · Event Planning · Team Leadership · Teamwork
+Skills:Problem Solving · Event Planning · Team Leadership · Teamwork

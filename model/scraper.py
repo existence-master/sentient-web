@@ -34,7 +34,7 @@ def get_work_status(open_to_work) :
         return 'not open to work'
 
 def get_name(name) :
-    only_name = name.split('(')[0]
+    only_name = name.split('\n')[0]
     return only_name.strip()
 
 def create_prompt(name, location, about, experience, education, interests, accomplishments, job_title, company, open_to_work) :
@@ -45,14 +45,14 @@ def create_prompt(name, location, about, experience, education, interests, accom
     """
     return prompt
 
-profiles = ["https://www.linkedin.com/in/palak-pardeshi/",
+profiles = ["https://uk.linkedin.com/in/joshuasrowe/",
             "https://www.linkedin.com/in/pratik-ghadge-7b5056210/",
             "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/",
             "https://www.linkedin.com/in/sara-shaikh/",
             "https://www.linkedin.com/in/abhishek-chaudhari13/"
             ]
 
-service = Service('D:\Skills\Repos\Python\Google Meet Bot\ChromeDrivers\win32\chromedriver')
+service = Service('C:\\Users\\SURYAWANSHI SACHIN\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe')
 driver = webdriver.Chrome(service = service)
 
 accounts = [
@@ -67,15 +67,22 @@ accounts = [
     {
         "linkedin_username": "prabhuneojaswini@gmail.com",
         "linkedin_password": "Patankar@2003"
+    },
+    {
+        "linkedin_username": "suryawanshiashish15@gmail.com",
+        "linkedin_password": "MH12vlogs"
     }
 ]
 
-actions.login(driver, email = accounts[2]["linkedin_username"], password = accounts[2]["linkedin_password"])
+actions.login(driver, email = accounts[3]["linkedin_username"], password = accounts[3]["linkedin_password"])
 
 for profile in profiles:
-    person = Person(linkedin_url = profile, driver = driver)
+    try:
+        person = Person(linkedin_url = profile, driver = driver, close_on_complete=False)
 
-    prompt = create_prompt(person.name, person.location, person.about, person.experiences, person.educations, person.interests, person.accomplishments, person.job_title, person.company, person.open_to_work).strip()
+        prompt = create_prompt(person.name, person.location, person.about, person.experiences, person.educations, person.interests, person.accomplishments, person.job_title, person.company, person.open_to_work).strip()
 
-    with open(f"data/raw/{person.name}.txt", "w") as file:
-        file.write(prompt)
+        with open(f"C:/Users/SURYAWANSHI SACHIN/Desktop/Sentient/Development/Sentient Web/model/data/raw/{get_name(person.name)}.txt", "w", encoding="utf-8") as file:
+            file.write(prompt)
+    except:
+        continue
