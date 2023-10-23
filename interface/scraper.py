@@ -3,6 +3,14 @@ from selenium.webdriver.chrome.service import Service
 from linkedin_scraper import Person, actions
 from selenium import webdriver
 
+
+person_profiles = ['https://www.linkedin.com/in/sarthak-karandikar-0223b7228/','https://www.linkedin.com/in/ameya-pandit-223ap/',
+                   'https://www.linkedin.com/in/ashish-chavan-42a804111/',
+                   'https://www.linkedin.com/in/mrunal-gosavi-548073204/'
+                   'https://www.linkedin.com/in/nikhil-vinod-khodake-546221191/']
+
+
+
 service = Service('D:\Skills\Repos\Python\Google Meet Bot\ChromeDrivers\win32\chromedriver')
 driver = webdriver.Chrome(service = service)
 
