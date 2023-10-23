@@ -1,3 +1,5 @@
+import json
+
 def transform_conversation_mistral(data):
     conversation_text = data
     segments = conversation_text.split("###")
@@ -221,3 +223,9 @@ Oh, sure. My purpose is to take humans to their cognitive limits without being b
 """
 
 new_data = transform_conversation_mistral(data)
+
+# json_object = json.dumps(new_data, indent = 0)  
+# print(type(json_object))
+
+with open('C:/Users/SURYAWANSHI SACHIN/Desktop/Sentient/Development/Sentient Web/model/data/dataset.jsonl','a') as file:
+    json.dump(new_data, file)
