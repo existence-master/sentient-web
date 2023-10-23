@@ -3,24 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from linkedin_scraper import Person, actions
 from selenium import webdriver
 
-
-person_profiles = ['https://www.linkedin.com/in/sarthak-karandikar-0223b7228/','https://www.linkedin.com/in/ameya-pandit-223ap/',
-                   'https://www.linkedin.com/in/ashish-chavan-42a804111/',
-                   'https://www.linkedin.com/in/mrunal-gosavi-548073204/'
-                   'https://www.linkedin.com/in/nikhil-vinod-khodake-546221191/']
-
-
-
-service = Service('D:\Skills\Repos\Python\Google Meet Bot\ChromeDrivers\win32\chromedriver')
-driver = webdriver.Chrome(service = service)
-
-linkedin_username = 'abhijeetsuryawanshi128@gmail.com'
-linkedin_password = ''
-
-actions.login(driver, email = linkedin_username, password = linkedin_password)
-
-person = Person(linkedin_url= 'https://www.linkedin.com/in/abhijeet-suryawanshi-597a50240/', driver = driver)
-
 def validate_data(data) :
     if data is None or type(data) is WebElement:
         return 'no data found'
@@ -63,6 +45,37 @@ def create_prompt(name, location, about, experience, education, interests, accom
     """
     return prompt
 
-prompt = create_prompt(person.name, person.location, person.about, person.experiences, person.educations, person.interests, person.accomplishments, person.job_title, person.company, person.open_to_work).strip()
+profiles = ["https://www.linkedin.com/in/palak-pardeshi/",
+            "https://www.linkedin.com/in/pratik-ghadge-7b5056210/",
+            "https://www.linkedin.com/in/ojaswini-prabhune-9ba11422b/",
+            "https://www.linkedin.com/in/sara-shaikh/",
+            "https://www.linkedin.com/in/abhishek-chaudhari13/"
+            ]
 
-print(prompt)
+service = Service('D:\Skills\Repos\Python\Google Meet Bot\ChromeDrivers\win32\chromedriver')
+driver = webdriver.Chrome(service = service)
+
+accounts = [
+    {
+        "linkedin_username": "abhijeetsuryawanshi128@gmail.com",
+        "linkedin_password": "abhijeet@12"
+    },
+    {
+        "linkedin_username": "itsskofficial03@gmail.com",
+        "linkedin_password": "skconnects@200803"
+    },
+    {
+        "linkedin_username": "prabhuneojaswini@gmail.com",
+        "linkedin_password": "Patankar@2003"
+    }
+]
+
+actions.login(driver, email = accounts[2]["linkedin_username"], password = accounts[2]["linkedin_password"])
+
+for profile in profiles:
+    person = Person(linkedin_url = profile, driver = driver)
+
+    prompt = create_prompt(person.name, person.location, person.about, person.experiences, person.educations, person.interests, person.accomplishments, person.job_title, person.company, person.open_to_work).strip()
+
+    with open(f"data/raw/{person.name}.txt", "w") as file:
+        file.write(prompt)

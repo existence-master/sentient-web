@@ -4,6 +4,7 @@ from firebase_admin import storage
 import streamlit as st
 from PIL import Image
 from utils import *
+from pypdf import PdfReader, PdfWriter
 
 def app():
     title_container = st.container()
@@ -18,15 +19,21 @@ def app():
     linkedin_profile = st.file_uploader("Upload your LinkedIn profile", type=["pdf"])
 
     if linkedin_profile is not None:
-        st.session_state.linkedin_profile = linkedin_profile
+        merger = PdfWriter()
+        system = PdfReader("assets/system.pdf")
+        profile = PdfReader(linkedin_profile)
+        for pdf in [system, profile]:
+            merger.append(pdf)
+        
+
         try:
             os.mkdir(st.session_state.username)
         except FileExistsError as e:
             pass
 
-        filepath = os.path.join(st.session_state.username, "linkedin-profile.pdf")
-        with open(filepath,"wb") as f: 
-            f.write(linkedin_profile.getbuffer())     
+        filepath = os.path.join(st.session_state.username, "context.pdf")     
+
+        merger.write(filepath)     
     
     if st.button("Submit"):
         try:

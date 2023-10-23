@@ -23,10 +23,7 @@ if 'username' not in st.session_state:
     st.session_state.username = ""
 
 if 'chat_history' not in st.session_state:
-    st.session_state.chat_history = None
-
-if 'linkedin_profile' not in st.session_state:
-    st.session_state.linkedin_profile = None  
+    st.session_state.chat_history = None 
 
 if 'ai_chat' not in st.session_state:
         st.session_state['ai_chat'] = []

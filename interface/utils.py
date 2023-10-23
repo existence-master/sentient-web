@@ -9,7 +9,7 @@ from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.memory.chat_message_histories.firestore import FirestoreChatMessageHistory
 
 def load_documents():
-    loader = DirectoryLoader(st.session_state.username, glob="*.pdf", loader_cls=PyPDFLoader)
+    loader = DirectoryLoader("data", glob="*.pdf", loader_cls=PyPDFLoader)
     documents = loader.load()
     return documents
 
@@ -31,8 +31,6 @@ def create_llm_model():
     return llm
 
 def create_conversation_memory():
-    if st.session_state.chat_history == None:
-        st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
     memory = ConversationBufferMemory(memory_key="chat_history", chat_memory = st.session_state.chat_history, return_messages=True)
     return memory
 
