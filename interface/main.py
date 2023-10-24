@@ -62,6 +62,7 @@ def app():
                 os.mkdir(st.session_state.username)
                 profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
                 linkedin_profile = bucket.blob(profile_filepath)
+                linkedin_profile.reload()
                 st.session_state.linkedin_profile = linkedin_profile
                 linkedin_profile.download_to_filename(profile_filepath)
 
