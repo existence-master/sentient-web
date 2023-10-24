@@ -29,7 +29,7 @@ def app():
         linkedin_profile = st.session_state.linkedin_profile
         context = st.session_state.context
         st.text(linkedin_profile.name)
-        st.text(linkedin_profile.updated if linkedin_profile.updated is not None else linkedin_profile.created)
+        st.text(linkedin_profile.updated if linkedin_profile.updated is not None else linkedin_profile.time_created)
         new_linkedin_profile = st.file_uploader("Change your LinkedIn profile", type = ["pdf"])
 
         if st.button("Submit"):
@@ -77,16 +77,23 @@ def app():
                     os.remove(os.path.join(root, name))
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
+            os.rmdir(st.session_state.username)
+            os.rmdir(f"data/{st.session_state.username}")
             for key in st.session_state.keys():
                 del st.session_state[key]
             st.rerun()
 
-    documents = load_documents()
-    text_chunks = split_text_into_chunks(documents)
     embeddings = create_embeddings()
-    vector_store = create_vector_store(text_chunks, embeddings)
-    llm = create_llm_model()
 
+   
+    if os.path.exists(f"data/{st.session_state.username}"):
+        vector_store = get_vector_store(f"data/{st.session_state.username}", embeddings)
+    else :
+        documents = load_documents()
+        text_chunks = split_text_into_chunks(documents)
+        vector_store = create_vector_store(text_chunks, embeddings, f"data/{st.session_state.username}")
+
+    llm = create_llm_model()
     memory = create_conversation_memory()
     chain = create_conversation_chain(llm = llm, vector_store = vector_store, memory = memory)
 
