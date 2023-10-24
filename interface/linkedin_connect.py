@@ -20,9 +20,9 @@ def app():
 
     if linkedin_profile is not None:
         merger = PdfWriter()
-        system = PdfReader("assets/system.pdf")
+        system = PdfReader("assets/context.pdf")
         profile = PdfReader(linkedin_profile)
-        for pdf in [system, profile]:
+        for pdf in [profile]:
             merger.append(pdf)       
 
         try:

@@ -9,7 +9,7 @@ from langchain.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain.memory.chat_message_histories.firestore import FirestoreChatMessageHistory
 
 def load_documents():
-    loader = DirectoryLoader("data", glob="*.pdf", loader_cls=PyPDFLoader)
+    loader = DirectoryLoader("assets", glob="*.pdf", loader_cls=PyPDFLoader)
     documents = loader.load()
     return documents
 
@@ -27,7 +27,7 @@ def create_vector_store(text_chunks, embeddings):
     return vector_store
 
 def create_llm_model():
-    llm = CTransformers(model="models/mistral-7b-instruct-v0.1.Q4_K_M.gguf", config={'max_new_tokens': 128, 'temperature': 0.01})
+    llm = CTransformers(model="models/mistral-7b-instruct-v0.1.Q4_K_M.gguf", config={'max_new_tokens': 1600, 'temperature': 0.01})
     return llm
 
 def create_conversation_memory():
@@ -37,7 +37,7 @@ def create_conversation_memory():
     return memory
 
 def create_conversation_chain(llm, vector_store, memory):
-    chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff', retriever=vector_store.as_retriever(search_kwargs={"k": 2}), memory=memory)
+    chain = ConversationalRetrievalChain.from_llm(llm=llm, chain_type='stuff', retriever=vector_store.as_retriever(search_kwargs={"k": 3}), memory=memory)
     return chain
 
 def conversation_chat(user_input, chain):
