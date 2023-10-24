@@ -134,6 +134,11 @@ Sarthak Karandikar - page 3UC-cab26805-47c8-41c9-b4c8-975ef753f51b
 The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert  - Udemy
 UC-23da117b-8f4f-4843-977a-eaa2a3fe91b2
 
+
+
+Now that you know about the user, you two can converse. Following is the user’s first message to you
+"""
+    profile3 = """
 Skills
 Web Development    •   Data Science    •   Machine Learning    •   Deep Learning    •   JavaScript    •   Python
 (Programming Language)    •   C++    •   UI/UX Design    •   Content Creation    •   Artificial Intelligence (AI)
@@ -156,29 +161,14 @@ Foundation
 Apr 2019
 National Cyber Olympiad Round 2 Award - Science Olympiad Foundation
 May 2019
-
-Now that you know about the user, you two can converse. Following is the user’s first message to you
 """
-    
     init = "Hi"
 
     init_reply = "Hey there, what's up"
-
-    if st.session_state.chat_history == None:
-        st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
         
-        system_chunks = split_text(system, 500)
-        profile_chunks = split_text(profile, 500)
+    system_chunks = split_text(system, 100)
+    profile_chunks = split_text(profile, 100)
 
-        for chunk in system_chunks:
-            st.session_state.chat_history.add_user_message(chunk)
-        for chunk in profile_chunks:
-            st.session_state.chat_history.add_user_message(chunk)
-
-        st.session_state.chat_history.add_user_message(init)
-        st.session_state.chat_history.add_ai_message(init_reply)
-        st.session_state.user_chat.append(init)
-        st.session_state.ai_chat.append(init_reply)
 
     documents = load_documents()
     text_chunks = split_text_into_chunks(documents)
@@ -191,6 +181,11 @@ Now that you know about the user, you two can converse. Following is the user’
 
     ai_container = st.container()
     user_container = st.container()
+
+    reply = conversation_chat(system, chain)
+    print(reply)
+    reply = conversation_chat(profile, chain)
+    print(reply)
 
     with user_container:
         with st.form(key = "user_input_form", clear_on_submit = True):

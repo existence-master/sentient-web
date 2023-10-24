@@ -23,8 +23,7 @@ def app():
         system = PdfReader("assets/system.pdf")
         profile = PdfReader(linkedin_profile)
         for pdf in [system, profile]:
-            merger.append(pdf)
-        
+            merger.append(pdf)       
 
         try:
             os.mkdir(st.session_state.username)
@@ -32,7 +31,6 @@ def app():
             pass
 
         filepath = os.path.join(st.session_state.username, "context.pdf")     
-
         merger.write(filepath)     
     
     if st.button("Submit"):
