@@ -1,3 +1,4 @@
+import os
 import chat
 from utils import *
 import firebase_admin
@@ -22,14 +23,20 @@ if 'bucket' not in st.session_state:
 if 'username' not in st.session_state:
     st.session_state.username = ""
 
+if 'linkedin_profile' not in st.session_state:
+    st.session_state.linkedin_profile = {"file": None, "lastModified" : None}
+
+if 'context' not in st.session_state:
+    st.session_state.context = None
+
 if 'chat_history' not in st.session_state:
     st.session_state.chat_history = None 
 
 if 'ai_chat' not in st.session_state:
-        st.session_state['ai_chat'] = []
+        st.session_state.ai_chat = []
 
 if 'user_chat' not in st.session_state:
-        st.session_state['user_chat'] = []  
+        st.session_state.user_chat = []  
 
 def app():
     title_container = st.container()
@@ -51,6 +58,18 @@ def app():
                 st.success("Login successful")
                 st.session_state.username = user.uid
                 db = st.session_state.db
+                bucket = st.session_state.bucket
+                os.mkdir(st.session_state.username)
+                profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
+                linkedin_profile = bucket.blob(profile_filepath)
+                st.session_state.linkedin_profile = linkedin_profile
+                linkedin_profile.download_to_filename(profile_filepath)
+
+                context_filepath = f"{st.session_state.username}/context.pdf"
+                context = bucket.blob(context_filepath)
+                st.session_state.context = context
+                context.download_to_filename(context_filepath)
+
                 st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 chat_history = db.collection("chat_histories").document(st.session_state.username).get().to_dict()
 

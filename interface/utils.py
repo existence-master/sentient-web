@@ -27,7 +27,7 @@ def create_vector_store(text_chunks, embeddings):
     return vector_store
 
 def create_llm_model():
-    llm = CTransformers(model="models/mistral-7b-instruct-v0.1.Q4_K_M.gguf", config={'max_new_tokens': 1600, 'temperature': 0.01})
+    llm = CTransformers(model="models/mistral-7b-instruct-v0.1.Q4_K_M.gguf", config={'max_new_tokens': 512, 'temperature': 0.01})
     return llm
 
 def create_conversation_memory():

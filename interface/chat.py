@@ -2,6 +2,8 @@ from utils import *
 from PIL import Image
 import streamlit as st
 import os
+from pypdf import PdfReader, PdfWriter
+from firebase_admin import credentials, auth, firestore, storage
 
 def app():
     title_container = st.container()
@@ -14,6 +16,38 @@ def app():
             st.title("Sentient")
     
     with st.sidebar:
+        st.title(st.session_state.username)
+        user = auth.get_user(st.session_state.username)
+        email = st.text_input("Change email :", placeholder = user.email)
+
+        if st.button("Save"):
+            auth.update_user(st.session_state.username, email = email)
+
+        st.text("Your file details")
+        linkedin_profile = st.session_state.linkedin_profile
+        context = st.session_state.context
+        st.text(linkedin_profile.name)
+        st.text(linkedin_profile.updated)
+        new_linkedin_profile = st.file_uploader("Change your LinkedIn profile", type = ["pdf"])
+
+        if st.button("Submit"):
+            profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
+            with open(profile_filepath, "wb") as file:
+                file.write(new_linkedin_profile.getbuffer())
+
+            merger = PdfWriter()
+            system = PdfReader("assets/context.pdf")
+            profile = PdfReader(new_linkedin_profile)
+            for pdf in [profile]:
+                merger.append(pdf)       
+
+            context_filepath = f"{st.session_state.username}/context.pdf"     
+            merger.write(context_filepath) 
+
+            linkedin_profile.upload_from_filename(profile_filepath)
+            context.upload_from_filename(context_filepath)
+            st.rerun()
+
         if st.button("Logout"):
             for root, dirs, files in os.walk(st.session_state.username, topdown=False):
                 for name in files:
@@ -23,9 +57,21 @@ def app():
             for key in st.session_state.keys():
                 del st.session_state[key]
             st.rerun()
-    
-    def split_text(text, n):
-        return [text[i:i+n] for i in range(0, len(text), n)]
+        
+        if st.button("Delete Account"):
+            auth.delete_user(st.session_state.username)
+            linkedin_profile.delete()
+            context.delete()
+            db = st.session_state.db
+            db.collection("chat_histories").document(st.session_state.username).delete()
+            for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+                for name in files:
+                    os.remove(os.path.join(root, name))
+                for name in dirs:
+                    os.rmdir(os.path.join(root, name))
+            for key in st.session_state.keys():
+                del st.session_state[key]
+            st.rerun()
 
     documents = load_documents()
     text_chunks = split_text_into_chunks(documents)
