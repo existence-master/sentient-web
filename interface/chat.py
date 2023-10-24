@@ -22,12 +22,14 @@ def app():
 
         if st.button("Save"):
             auth.update_user(st.session_state.username, email = email)
+            email.value = ""
+            st.rerun()
 
         st.text("Your file details")
         linkedin_profile = st.session_state.linkedin_profile
         context = st.session_state.context
         st.text(linkedin_profile.name)
-        st.text(linkedin_profile.updated)
+        st.text(linkedin_profile.updated if linkedin_profile.updated is not None else linkedin_profile.created)
         new_linkedin_profile = st.file_uploader("Change your LinkedIn profile", type = ["pdf"])
 
         if st.button("Submit"):
@@ -43,9 +45,14 @@ def app():
 
             context_filepath = f"{st.session_state.username}/context.pdf"     
             merger.write(context_filepath) 
+            
 
             linkedin_profile.upload_from_filename(profile_filepath)
             context.upload_from_filename(context_filepath)
+            st.session_state.linkedin_profile = linkedin_profile
+            st.session_state.context = context
+            css = " .uploadedFiles {display: none;} "
+            st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
             st.rerun()
 
         if st.button("Logout"):
@@ -54,6 +61,7 @@ def app():
                     os.remove(os.path.join(root, name))
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
+            os.rmdir(st.session_state.username)
             for key in st.session_state.keys():
                 del st.session_state[key]
             st.rerun()

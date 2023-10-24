@@ -18,11 +18,6 @@ def app():
     linkedin_profile = st.file_uploader("Upload your LinkedIn profile", type=["pdf"])
 
     if linkedin_profile is not None:
-        profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
-
-        with open(profile_filepath, "wb") as file:
-            file.write(linkedin_profile.getbuffer())
-
         merger = PdfWriter()
         system = PdfReader("assets/context.pdf")
         profile = PdfReader(linkedin_profile)
@@ -35,7 +30,11 @@ def app():
             pass
 
         context_filepath = f"{st.session_state.username}/context.pdf"     
-        merger.write(context_filepath)     
+        merger.write(context_filepath) 
+        profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
+
+        with open(profile_filepath, "wb") as file:
+            file.write(linkedin_profile.getbuffer())    
     
     if st.button("Submit"):
         try:
