@@ -4,6 +4,13 @@ import { motion, useTransform } from "framer-motion";
 
 const Steps = ({pageScrollProgress}) => {
 
+  if (pageScrollProgress === undefined) {
+    return (<h1>
+      Error
+    </h1>
+    )
+  }
+
   const firstTextX = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.6, 0.61],
