@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+//import { TypeAnimation } from "react-type-animation";
 
 const Nav = () => {
   return (
@@ -23,17 +23,16 @@ const Nav = () => {
           </span>
         </div>
         <div>
-        <Link href="/warning">
+        <Link href="https://existence-sentient.streamlit.app">
           <motion.button
             whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
-            className="bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white"
-          >
-            interested?
+            className="bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white">
+            try out now
           </motion.button>
         </Link>
         </div>
       </div>
-      <div className="sm:hidden h-screen w-full flex justify-center items-center">
+      {/* <div className="h-screen w-full flex justify-center items-center">
         <span className="text-white font-Poppins text-[50px]">
           <TypeAnimation
               sequence={[
@@ -50,7 +49,7 @@ const Nav = () => {
               speed={30}
               deletionSpeed={30} />
         </span>  
-      </div>
+      </div> */}
     </section>
   );
 };

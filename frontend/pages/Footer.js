@@ -1,46 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [submit, setSubmit] = useState(false);
-  const [error, setError] = useState(null);
-
-  const handleChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("/api/add-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-        }),
-      });
-      if (response.status == 201) {
-        setError(null);
-        setSubmit(true);
-      } else {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage);
-      }
-    } catch (error) {
-      setError(error.message);
-      setSubmit(true);
-    } finally {
-      setTimeout(() => {
-        setSubmit(false);
-      }, 5000);
-    }
-  };
 
   return (
     <section>
@@ -49,45 +13,20 @@ const Footer = () => {
         className="z-10 relative flex flex-col h-screen lg:gap-[50px] xs:gap-[30px] justify-center items-center lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10"
       >
         <h3 className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] text-center text-white">
-          interested in using sentient?
+          where we are right now
         </h3>
-        {submit == true ? (
-          error == null ? (
-            <div className="w-full text-center">
-              <span className="text-white font-Poppins lg:text-lg sm:text-md xs:text-sm">
-                Congrats, you are in the waitlist
-              </span>
-            </div>
-          ) : (
-            <div className="w-full text-center">
-              <span className="text-white font-Poppins lg:text-lg sm:text-md xs:text-sm">
-                {`That didn't work. ${error}`}
-              </span>
-            </div>
-          )
-        ) : (
-          <div className="flex items-center justify-center lg:gap-x-[50px] sm:gap-x-[25px] xs:gap-x-[15px]">
-            <div className="flex-auto sm:p-1 xs:p-0.5 w-full bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] rounded-[12px]">
-              <input
-                type="text"
-                placeholder="your email here"
-                className="font-Montserrat w-full font-light lg:text-lg sm:text-md xs:text-sm lg:p-4 sm:p-3 xs:p-2 bg-black text-gray-300 rounded-[12px]"
-                onChange={handleChange}
-              />
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
-              type="submit"
-              onClick={handleSubmit}
-              className="flex-none bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:px-8 sm:px-6 xs:px-4 lg:py-4 sm:py-3 xs:py-2 rounded-[12px] font-Montserrat sm:font-semibold xs:font-medium lg:text-lg sm:text-md xs:text-sm text-white"
-            >
-              submit
-            </motion.button>
-          </div>
-        )}
+        <div className="flex items-center justify-center lg:gap-x-[50px] sm:gap-x-[25px] xs:gap-x-[15px]">
+        <Link href="https://existence-sentient.streamlit.app">
+          <motion.button
+            whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+            className="flex-none bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:px-8 sm:px-6 xs:px-4 lg:py-4 sm:py-3 xs:py-2 rounded-[12px] font-Montserrat sm:font-semibold xs:font-medium lg:text-lg sm:text-md xs:text-sm text-white">
+            try out now
+          </motion.button>
+        </Link>
+        
+        </div>
         <h4 className="font-Sanchez font-extralight lg:text-[30px] sm:text-[20px] xs:text-[10px] text-center text-gray-300">
-          sentient is currently in development. enter your email and be one of
-          the first to try
+          sentient is in continuous development. currently we have a chatbot who chats with you about anything with the added utility of helping you improve your LinkedIn profile. we are taking baby steps towards the end goal. you can try it out now
         </h4>
       </div>
       <div className="text-center relative">

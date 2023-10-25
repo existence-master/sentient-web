@@ -6,31 +6,31 @@ const Steps = ({pageScrollProgress}) => {
 
   const firstTextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.6, 0.62],
+    [0.6, 0.61],
     [-1000, 0]
   ) 
 
   const secondTextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.62, 0.64],
-    [-1000, 150]
+    [0.61, 0.62],
+    [-1000, 0]
   )
 
   const thirdTextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.64, 0.66],
-    [-1000, 300]
+    [0.62, 0.63],
+    [-1000, 0]
   )
 
   const textOpacity = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.66, 0.7], 
+    [0.64, 0.66], 
     [1, 0]
   )
 
   return (
     <section>
-      <div className="fixed sm:top-[25vh] flex flex-col lg:gap-[70px] sm:gap-[50px] xs:gap-[30px] lg:mr-20 sm:mr-16 xs:mr-10 lg:ml-20 sm:ml-16 xs:ml-10 xs:max-sm:h-[50vh]  justify-center">
+      <div className="fixed top-0 h-screen flex flex-col lg:gap-[70px] sm:gap-[50px] xs:gap-[30px] lg:pr-20 sm:pr-16 xs:pr-10 lg:pl-20 sm:pl-16 xs:pl-10 justify-center w-screen">
         <motion.h3 style={{ x: firstTextX, opacity: textOpacity}} className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] sm:text-left xs:text-center text-white">
           quick signup
         </motion.h3>

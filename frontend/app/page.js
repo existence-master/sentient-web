@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Fragment>
       <Nav/>
-      <div className = "h-[975vh]" ref={pageRef}>
+      <div className = "h-[950vh] overflow-hidden" ref={pageRef}>
         <Hero pageScrollProgress={pageScrollProgress} />
         <Context pageScrollProgress={pageScrollProgress} />
         <Steps pageScrollProgress={pageScrollProgress} />
