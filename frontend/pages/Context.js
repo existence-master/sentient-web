@@ -1,9 +1,9 @@
 "use client";
 
-import { useTransform, motion } from "framer-motion";
+import { useTransform, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
-const Context = ({ pageScrollProgress }) => {
+const Context = ({ pageScrollProgress = useScroll() }) => {
 
   const firstContextX = useTransform(
     pageScrollProgress.scrollYProgress,

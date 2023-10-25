@@ -1,9 +1,9 @@
 "use client";
 
-import { useTransform, motion } from "framer-motion";
+import { useTransform, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
-const Hero = ({ pageScrollProgress }) => {
+const Hero = ({ pageScrollProgress = useScroll() }) => {
 
   const imageOpacity = useTransform(
     pageScrollProgress.scrollYProgress,
