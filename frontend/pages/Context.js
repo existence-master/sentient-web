@@ -2,76 +2,74 @@
 
 import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 
-const Context = () => {
-  const firstContextRef = useRef();
-  const firstContextScroll = useScroll({
-    target: firstContextRef,
-    offset: ["start end", "end center"],
-  });
-
+const Context = ({pageScrollProgress}) => {
   const firstContextX = useTransform(
-    firstContextScroll.scrollYProgress,
-    [0, 0.5],
-    [1000, 0]
-  );
+    pageScrollProgress.scrollYProgress,
+    [0.3, 0.4],
+    [1000, 200]
+  )
 
-  const secondContextRef = useRef();
-  const secondContextScroll = useScroll({
-    target: secondContextRef,
-    offset: ["start end", "end center"],
-  });
+  const firstContextOpacity = useTransform(
+    pageScrollProgress.scrollYProgress,
+    [0.3, 0.33, 0.38, 0.4],
+    [0, 1, 1, 0]
+  )
 
   const secondContextX = useTransform(
-    secondContextScroll.scrollYProgress,
-    [0, 0.5],
-    [-1000, 0]
-  );
+    pageScrollProgress.scrollYProgress,
+    [0.3, 0.4],
+    [-500, 0]
+  )
 
-  const thirdContextRef = useRef();
-  const thirdContextScroll = useScroll({
-    target: thirdContextRef,
-    offset: ["start end", "end center"],
-  });
+  const secondContextOpacity = useTransform(
+    pageScrollProgress.scrollYProgress,
+    [0.3, 0.33, 0.38, 0.4],
+    [0, 1, 1, 0]
+  )
 
   const thirdContextX = useTransform(
-    thirdContextScroll.scrollYProgress,
-    [0, 0.5],
-    [1000, 0]
-  );
+    pageScrollProgress.scrollYProgress,
+    [0.4, 0.5],
+    [0, 1000]
+  )
 
-  const fourthContextRef = useRef();
-  const fourthContextScroll = useScroll({
-    target: fourthContextRef,
-    offset: ["start end", "end center"],
-  });
+  const thirdContextOpacity = useTransform(
+    pageScrollProgress.scrollYProgress,
+    [0.4, 0.43, 0.48, 0.5],
+    [0, 1, 1, 0]
+  )
 
   const fourthContextX = useTransform(
-    fourthContextScroll.scrollYProgress,
-    [0, 0.5],
-    [-1000, 0]
-  );
+    pageScrollProgress.scrollYProgress,
+    [0.4, 0.5],
+    [0, -500]
+  )
 
-  const fifthContextRef = useRef();
-  const fifthContextScroll = useScroll({
-    target: fifthContextRef,
-    offset: ["start end", "end center"],
-  });
+  const fourthContextOpacity = useTransform(
+    pageScrollProgress.scrollYProgress,
+    [0.4, 0.43, 0.48, 0.5],
+    [0, 1, 1, 0]
+  )
 
   const fifthContextOpacity = useTransform(
-    fifthContextScroll.scrollYProgress,
-    [0, 0.5],
-    [0, 1]
-  );
+    pageScrollProgress.scrollYProgress,
+    [0.5, 0.525, 0.55],
+    [0, 1, 0]
+  )
+
+  const sixthContextOpacity = useTransform(
+    pageScrollProgress.scrollYProgress,
+    [0.55, 0.575, 0.6],
+    [0, 1, 0]
+  )
 
   return (
-    <section>
-      <div className="flex h-full sm:flex-row xs:flex-col lg:mr-20 sm:mr-16">
+    <section className="flex justify-center items-center h-full">
+      <div className="fixed sm:top-0 flex h-full sm:flex-row xs:flex-col lg:mr-20">
         <motion.div
-          ref={secondContextRef}
-          style={{ x: secondContextX }}
-          className="sm:w-1/2 relative"
+          style={{ x: secondContextX, opacity: secondContextOpacity }}
+          className="sm:w-1/2 fixed"
         >
           <Image
             src="/context-blob-1.svg"
@@ -107,8 +105,7 @@ const Context = () => {
           />
         </motion.div>
         <motion.div
-          ref={firstContextRef}
-          style={{ x: firstContextX }}
+          style={{ x: firstContextX, opacity: firstContextOpacity }}
           className="flex sm:w-1/2 flex-col sm:items-start xs:items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]"
         >
           <h3 className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] text-white">
@@ -119,10 +116,9 @@ const Context = () => {
           </h4>
         </motion.div>
       </div>
-      <div className="flex h-full sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16">
+      <div className="fixed sm:top-0 flex h-full sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16">
         <motion.div
-          ref={fourthContextRef}
-          style={{ x: fourthContextX }}
+          style={{ x: fourthContextX, opacity: fourthContextOpacity }}
           className="flex sm:w-1/2 flex-col sm:items-start xs:items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]"
         >
           <h3 className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] text-white">
@@ -133,9 +129,8 @@ const Context = () => {
           </h4>
         </motion.div>
         <motion.div
-          ref={thirdContextRef}
-          style={{ x: thirdContextX }}
-          className="sm:w-1/2 relative"
+          style={{ x: thirdContextX, opacity: thirdContextOpacity }}
+          className="sm:w-1/2 fixed"
         >
           <Image
             src="/context-blob-2.svg"
@@ -171,12 +166,7 @@ const Context = () => {
           />
         </motion.div>
       </div>
-      <motion.div
-        ref={fifthContextRef}
-        style={{ opacity: fifthContextOpacity }}
-        className="flex flex-col xs:max-sm:h-screen sm:h-full justify-center items-center"
-      >
-        <div className="relative">
+        <motion.div className="fixed sm:-top-[15vh] flex flex-col xs:max-sm:h-screen  justify-center items-center" style={{ opacity: fifthContextOpacity }}>
           <Image
             src="/context-blob-3.svg"
             width={0}
@@ -193,16 +183,15 @@ const Context = () => {
             className="w-screen absolute sm:left-0 top-0"
             alt="Sentient Chat"
           />
-        </div>
-        <div className="flex flex-col items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]">
+        </motion.div>
+        <motion.div style={{ opacity: sixthContextOpacity }} className="fixed sm:top-[45vh] flex flex-col items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]">
           <h3 className="font-Quicksand font-bold lg:text-[50px] sm:text-[25px] xs:text-[15px] text-white">
             sentient comes to the rescue
           </h3>
           <h4 className="font-Sanchez font-extralight lg:text-[30px] sm:text-[20px] xs:text-[10px] text-gray-300">
             the power of cognition + personal knowledge base
           </h4>
-        </div>
-      </motion.div>
+        </motion.div>
     </section>
   );
 };
