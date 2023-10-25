@@ -4,7 +4,7 @@ import { useTransform, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
 const Context = ({ pageScrollProgress }) => {
-  if (pageScrollProgress === undefined) {
+  if (pageScrollProgress === undefined || pageScrollProgress === null) {
     pageScrollProgress = useScroll()
   }
 

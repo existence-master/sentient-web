@@ -3,7 +3,7 @@
 import { useScroll, motion, useTransform } from "framer-motion";
 
 const Steps = ({ pageScrollProgress }) => {
-  if (pageScrollProgress === undefined) {
+  if (pageScrollProgress === undefined || pageScrollProgress === null) {
     pageScrollProgress = useScroll()
   }
 
