@@ -10,7 +10,7 @@ const Hero = () => {
 
   const heroImageScroll = useScroll({
     target: heroImageRef,
-    offset: ["center end", "end start"],
+    offset: ["start end", "end start"],
   });
 
   const heroTextScroll = useScroll({
@@ -18,56 +18,65 @@ const Hero = () => {
     offset: ["start end", "end start"],
   });
 
-  const imageOpacity = useTransform(
+  const imageTranslate = useTransform(
     heroImageScroll.scrollYProgress,
-    [0, 0.5],
+    [0, 1],
+    [-1000, 0]
+  )
+  const { scrollYProgress } = useScroll()
+
+  const imageOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.15],
     [1, 0]
   );
   const imageScale = useTransform(
-    heroImageScroll.scrollYProgress,
-    [0, 0.5],
-    [1, 1.5]
+    scrollYProgress,
+    [0, 0.15],
+    [1, 2.5]
   );
 
   const textOpacity = useTransform(
-    heroTextScroll.scrollYProgress,
-    [0, 0.5, 1],
+    scrollYProgress,
+    [0.15, 0.25, 0.5],
     [0, 1, 0]
   );
   const textScale = useTransform(
-    heroTextScroll.scrollYProgress,
-    [0, 0.5, 1],
-    [2.5, 1, 0.5]
+    scrollYProgress,
+    [0.15, 0.25, 0.5],
+    [2.5, 1, 0]
   );
 
+
   return (
-    <section>
+    <section className = "h-[800vh]">
       <motion.div
-        style={{ opacity: imageOpacity, scale: imageScale }}
+        //style={{ opacity: imageOpacity, scale: imageScale }}
+        style={{scale: imageScale, opacity: imageOpacity, x: imageTranslate}}
         ref={heroImageRef}
-        className="relative"
+        className="fixed z-10 left-[30vw] top-[25vw]"
       >
-        <Image
+        {/* <Image
           src="/hero-blob.svg"
           width={0}
           height={0}
           sizes="100vh"
-          className="w-screen left-0 right-0"
+          className="w-[50%] left-[50%] right-0"
           alt="Hero Blob"
-        />
+        /> */}
         <Image
-          src="/human-robot-handshake.png"
+          src="/evolution.svg"
           width={0}
           height={0}
           sizes="100vh"
-          className="w-screen absolute left-0 right-0 lg:top-[200px] sm:top-[125px] xs:top-[75px]"
+          className="w-[50vw]"
           alt="Human Robot Handshake"
         />
       </motion.div>
       <motion.div
-        style={{ opacity: textOpacity, scale: textScale }}
+        style={{scale: textScale, opacity: textOpacity}}
         ref={heroTextRef}
-        className="flex flex-col justify-center items-center text-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px] lg:ml-20 sm:ml-16 xs:ml-10 lg:mr-20 sm:mr-16 xs:mr-10"
+        className="fixed right-[5%] top-[30vh] flex flex-col justify-center items-center text-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px] lg:ml-20 sm:ml-16 xs:ml-10 lg:mr-20 sm:mr-16 xs:mr-10"
       >
         <h1 className="font-Montserrat font-extrabold lg:text-[100px] sm:text-[50px] xs:text-[25px] text-white">
           your personal AI
