@@ -1,4 +1,3 @@
-import Provider from "@components/Provider";
 import "@styles/globals.css";
 
 export const metadata = {
@@ -34,9 +33,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="bg-black">
-        <Provider>
             <div className="mt-10 overflow-x-hidden overflow-y-auto">{children}</div>  
-        </Provider>
       </body>
     </html>
   );
