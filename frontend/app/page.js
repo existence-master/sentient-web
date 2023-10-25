@@ -18,14 +18,13 @@ const Home = () => {
   return (
     <Fragment>
       <Nav/>
-      <div className = "h-[2000vh]" ref={pageRef}>
+      <div className = "h-[975vh]" ref={pageRef}>
         <Hero pageScrollProgress={pageScrollProgress} />
         <Context pageScrollProgress={pageScrollProgress} />
         <Steps pageScrollProgress={pageScrollProgress} />
-        {/*  
-        <Evolution pageScrollProgress={pageScrollProgress} />
-        <Features pageScrollProgress={pageScrollProgress} /> */}
       </div>
+      <Evolution />
+      <Features /> 
       <Footer /> 
     </Fragment>
     

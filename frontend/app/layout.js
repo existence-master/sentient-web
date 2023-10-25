@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="bg-black">
         <Provider>
-            <div className="mt-10 overflow-x-hidden">{children}</div>  
+            <div className="mt-10 overflow-x-hidden overflow-y-auto">{children}</div>  
         </Provider>
       </body>
     </html>

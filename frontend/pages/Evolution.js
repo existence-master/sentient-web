@@ -20,7 +20,7 @@ const Evolution = () => {
     visible: {
       opacity: 1,
       transition: {
-        delay: 1.5,
+        delay: 5,
         staggerChildren: 0.08,
       },
     },
@@ -31,6 +31,9 @@ const Evolution = () => {
     visible: {
       opacity: 1,
       y: 0,
+    },
+    transition: {
+      delay: 1,
     },
   };
 
