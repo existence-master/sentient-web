@@ -40,7 +40,7 @@ def create_llm_model():
 def create_conversation_memory():
     if st.session_state.chat_history == None:
         st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
-    memory = ConversationBufferMemory(memory_key="chat_history", chat_memory = st.session_state.chat_history.messages, return_messages=True)
+    memory = ConversationBufferMemory(memory_key="chat_history", chat_memory = st.session_state.chat_history, return_messages=True)
     return memory
 
 def create_conversation_chain(llm, vector_store, memory):
@@ -48,5 +48,5 @@ def create_conversation_chain(llm, vector_store, memory):
     return chain
 
 def conversation_chat(user_input, chain):
-    ai_reply = chain({"question": user_input, "chat_history": st.session_state.chat_history})["answer"]
+    ai_reply = chain({"question": user_input, "chat_history": st.session_state.chat_history.messages})["answer"]
     return ai_reply
