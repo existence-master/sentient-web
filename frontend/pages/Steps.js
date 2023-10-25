@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useTransform } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 const Steps = ({pageScrollProgress = useScroll()}) => {
 
