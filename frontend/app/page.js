@@ -27,7 +27,6 @@ const Home = () => {
       <Features /> 
       <Footer /> 
     </Fragment>
-    
   )
 }
 
