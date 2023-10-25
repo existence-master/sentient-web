@@ -5,13 +5,6 @@ import Image from "next/image";
 
 const Context = ({ pageScrollProgress }) => {
 
-  if (pageScrollProgress === undefined) {
-    return (<h1>
-      Error
-    </h1>
-    )
-  }
-  
   const firstContextX = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.3, 0.4],
