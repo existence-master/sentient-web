@@ -3,7 +3,10 @@
 import { useTransform, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 
-const Hero = ({ pageScrollProgress = useScroll() }) => {
+const Hero = ({ pageScrollProgress }) => {
+  if (pageScrollProgress === undefined) {
+    pageScrollProgress = useScroll()
+  }
 
   const imageOpacity = useTransform(
     pageScrollProgress.scrollYProgress,

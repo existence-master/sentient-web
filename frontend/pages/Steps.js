@@ -2,7 +2,10 @@
 
 import { useScroll, motion, useTransform } from "framer-motion";
 
-const Steps = ({pageScrollProgress = useScroll()}) => {
+const Steps = ({ pageScrollProgress }) => {
+  if (pageScrollProgress === undefined) {
+    pageScrollProgress = useScroll()
+  }
 
   const firstTextX = useTransform(
     pageScrollProgress.scrollYProgress,
