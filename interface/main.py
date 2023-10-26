@@ -1,5 +1,6 @@
 import os
 import chat
+import requests
 from utils import *
 import firebase_admin
 from PIL import Image
@@ -33,10 +34,13 @@ if 'chat_history' not in st.session_state:
     st.session_state.chat_history = None 
 
 if 'ai_chat' not in st.session_state:
-        st.session_state.ai_chat = []
+    st.session_state.ai_chat = []
 
 if 'user_chat' not in st.session_state:
-        st.session_state.user_chat = []  
+    st.session_state.user_chat = [] 
+
+if 'url' not in st.session_state:
+    st.session_state.url = "https://helpful-boxer-wrongly.ngrok-free.app" 
 
 def app():
     title_container = st.container()
@@ -79,6 +83,14 @@ def app():
                         st.session_state.user_chat.append(message["data"]["content"])
                     else:
                         st.session_state.ai_chat.append(message["data"]["content"])
+
+                response = requests.post(f"{st.session_state.url}/initiate",data={"username" : st.session_state.username},headers = {"Content-Type" : "application/json"})
+
+                if response.status_code == 200:
+                    print("POST request was successful!")
+                    print("Response:", response.text)
+                else:
+                    print("Request failed with status code:", response.status_code)
 
                 st.session_state.runpage = chat.app
                 st.rerun()

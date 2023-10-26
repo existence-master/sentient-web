@@ -2,8 +2,9 @@ from utils import *
 from PIL import Image
 import streamlit as st
 import os
+import requests
 from pypdf import PdfReader, PdfWriter
-from firebase_admin import credentials, auth, firestore, storage
+from firebase_admin import  auth
 
 def app():
     title_container = st.container()
@@ -83,20 +84,6 @@ def app():
                 del st.session_state[key]
             st.rerun()
 
-    embeddings = create_embeddings()
-
-   
-    if os.path.exists(f"data/{st.session_state.username}"):
-        vector_store = get_vector_store(f"data/{st.session_state.username}", embeddings)
-    else :
-        documents = load_documents()
-        text_chunks = split_text_into_chunks(documents)
-        vector_store = create_vector_store(text_chunks, embeddings, f"data/{st.session_state.username}")
-
-    llm = create_llm_model()
-    memory = create_conversation_memory()
-    chain = create_conversation_chain(llm = llm, vector_store = vector_store, memory = memory)
-
     ai_container = st.container()
     user_container = st.container()
 
@@ -106,7 +93,8 @@ def app():
             submit = st.form_submit_button(label = "Send")
 
         if submit and user_input:
-            ai_reply = conversation_chat(user_input, chain)
+            response = requests.post(f"{st.session_state.url}/invoke", json = {"input": {"question": user_input}})
+            ai_reply = response.json()["output"]["answer"]
             st.session_state["user_chat"].append(user_input)
             st.session_state["ai_chat"].append(ai_reply)
         
