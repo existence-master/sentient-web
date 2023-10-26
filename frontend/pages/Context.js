@@ -10,8 +10,8 @@ const Context = ({ pageScrollProgress }) => {
 
   const firstContextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.3, 0.4],
-    [1000, 100]
+    [0.3, 0.35, 0.4],
+    [500, 0, -100]
   );
 
   const firstContextOpacity = useTransform(
@@ -22,8 +22,8 @@ const Context = ({ pageScrollProgress }) => {
 
   const secondContextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.3, 0.4],
-    [-500, 0]
+    [0.3, 0.35, 0.4],
+    [-250, 0, 100]
   );
 
   const secondContextOpacity = useTransform(
@@ -34,25 +34,25 @@ const Context = ({ pageScrollProgress }) => {
 
   const thirdContextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.4, 0.5],
-    [0, 500]
+    [0.4, 0.45, 0.5],
+    [0, 100, 500]
   );
 
   const thirdContextOpacity = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.4, 0.43, 0.49, 0.5],
+    [0.4, 0.41, 0.49, 0.5],
     [0, 1, 1, 0]
   );
 
   const fourthContextX = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.4, 0.5],
-    [0, -500]
+    [0.4, 0.45, 0.5],
+    [0, -100, -500]
   );
 
   const fourthContextOpacity = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.4, 0.43, 0.49, 0.5],
+    [0.4, 0.41, 0.49, 0.5],
     [0, 1, 1, 0]
   );
 
@@ -73,14 +73,14 @@ const Context = ({ pageScrollProgress }) => {
       <div className="fixed top-0 flex justify-center items-center w-screen h-screen sm:flex-row xs:flex-col xs:max-sm:gap-[50px]">
         <motion.div
           style={{ x: secondContextX, opacity: secondContextOpacity }}
-          className="sm:w-1/2"
+          className="sm:w-1/2 flex justify-center items-end"
         >
           <Image
             src="/human-chat.svg"
             width={0}
             height={0}
             sizes="100vh"
-            className="xs:w-[100px] sm:w-[250px] lg:w-[400px]"
+            className="xs:w-[200px] sm:w-[250px] lg:w-[300px]"
             alt="Human Chat"
           />
         </motion.div>
@@ -117,7 +117,7 @@ const Context = ({ pageScrollProgress }) => {
             width={0}
             height={0}
             sizes="100vh"
-            className="xs:w-[100px] sm:w-[250px] lg:w-[400px]"
+            className="xs:w-[200px] sm:w-[250px] lg:w-[300px]"
             alt="AI Chat"
           />
         </motion.div>

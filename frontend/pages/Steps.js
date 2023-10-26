@@ -16,18 +16,18 @@ const Steps = ({ pageScrollProgress }) => {
   const secondTextX = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.61, 0.62],
-    [-1000, 0]
+    [-1500, 0]
   )
 
   const thirdTextX = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.62, 0.63],
-    [-1000, 0]
+    [-2000, 0]
   )
 
   const textOpacity = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.64, 0.66], 
+    [0.63, 0.65], 
     [1, 0]
   )
 

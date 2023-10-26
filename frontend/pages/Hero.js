@@ -35,7 +35,7 @@ const Hero = ({ pageScrollProgress }) => {
     <section className="flex justify-center items-center h-full">
       <motion.div
         style={{scale: imageScale, opacity: imageOpacity}}
-        className="fixed top-0 h-screen w-screen z-10 flex justify-center items-center"
+        className="fixed xs:top-0 lg:top-[10vh] h-screen w-screen z-10 flex justify-center items-center"
       >
         <Image
           src="/human-robot-handshake.svg"
@@ -60,9 +60,5 @@ const Hero = ({ pageScrollProgress }) => {
     </section>
   );
 };
-
-Hero.defaultProps = {
-  pageScrollProgress: null
-}
 
 export default Hero;
