@@ -94,10 +94,11 @@ def app():
                 print("POST request was successful!")
                 print("Response:", response.text)
                 ai_reply = response.text
+                st.session_state["user_chat"].append(user_input)
+                st.session_state["ai_chat"].append(ai_reply)
             else:
                 print("Request failed with status code:", response.status_code)
-            st.session_state["user_chat"].append(user_input)
-            st.session_state["ai_chat"].append(ai_reply)
+           
         
         if st.session_state["ai_chat"]:
             with ai_container:
