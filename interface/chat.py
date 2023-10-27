@@ -89,7 +89,7 @@ def app():
             submit = st.form_submit_button(label = "Send")
 
         if submit and user_input:
-            response = requests.post(f"{st.session_state.url}/chat", json = {"input": {"question": str(user_input)}}, headers = {"Content-Type" : "application/json"})
+            response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
             if response.status_code == 200:
                 print("POST request was successful!")
                 print("Response:", response.text)
