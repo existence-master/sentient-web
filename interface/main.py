@@ -61,7 +61,7 @@ def app():
     col1, col2 = st.columns([5,20])
     with title_container:
         with col1:
-            st.image("logo.png", width=64)
+            st.image("interface/logo.png", width=64)
         with col2:
             st.title("Sentient")
 
