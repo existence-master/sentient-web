@@ -90,7 +90,12 @@ def app():
 
         if submit and user_input:
             response = requests.post(f"{st.session_state.url}/chat", json = {"input": {"question": str(user_input)}}, headers = {"Content-Type" : "application/json"})
-            ai_reply = response.json()["output"]["answer"]
+            if response.status_code == 200:
+                print("POST request was successful!")
+                print("Response:", response.text)
+                ai_reply = response.text
+            else:
+                print("Request failed with status code:", response.status_code)
             st.session_state["user_chat"].append(user_input)
             st.session_state["ai_chat"].append(ai_reply)
         
