@@ -37,14 +37,12 @@ def app():
                 file.write(new_linkedin_profile.getbuffer())
 
             merger = PdfWriter()
-            system = PdfReader("assets/context.pdf")
             profile = PdfReader(new_linkedin_profile)
             for pdf in [profile]:
                 merger.append(pdf)       
 
             context_filepath = f"{st.session_state.username}/context.pdf"     
             merger.write(context_filepath) 
-            
 
             linkedin_profile.upload_from_filename(profile_filepath)
             context.upload_from_filename(context_filepath)
