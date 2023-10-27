@@ -1,4 +1,5 @@
 import os
+import glob
 import chat
 import requests
 import firebase_admin
@@ -56,13 +57,15 @@ if 'url' not in st.session_state:
     st.session_state.url = "https://helpful-boxer-wrongly.ngrok-free.app" 
 
 def app():
+    assets = glob(os.path.join(".", "assets", "*"))
+    assets_dict = {image_path.split("/")[-1].split(".")[-2].replace("-", " "): image_path for image_path in assets}
     title_container = st.container()
     col1, col2 = st.columns([5,20])
     print(os.getcwd())
-    # image = Image.open("/assets/logo.png")
+    image = Image.open(assets_dict["logo.png"])
     with title_container:
         with col1:
-            st.image("assets/logo.png", width=64)
+            st.image(image, width=64)
         with col2:
             st.title("Sentient")
 
