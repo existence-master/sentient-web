@@ -12,7 +12,7 @@ try:
     "type": "service_account",
     "project_id": "mvp-development-401805",
     "private_key_id": st.secrets("PRIVATE_KEY_ID"),
-    "private_key": st.secrets("PRIVATE_KEY").replace(r'\n', '\n'),
+    "private_key": st.secrets("PRIVATE_KEY"),
     "client_email": st.secrets("CLIENT_EMAIL"),
     "client_id": st.secrets("CLIENT_ID"),
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
