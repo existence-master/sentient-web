@@ -1,5 +1,5 @@
 import os
-import glob
+from glob import glob
 import chat
 import requests
 import firebase_admin
