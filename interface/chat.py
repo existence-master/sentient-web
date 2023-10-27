@@ -8,10 +8,9 @@ from firebase_admin import  auth
 def app():
     title_container = st.container()
     col1, col2 = st.columns([5,20])
-    image = Image.open("/assets/logo.png")
     with title_container:
         with col1:
-            st.image(image, width=64)
+            st.image("logo.png", width=64)
         with col2:
             st.title("Sentient")
     
