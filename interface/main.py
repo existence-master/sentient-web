@@ -58,7 +58,7 @@ if 'url' not in st.session_state:
 def app():
     title_container = st.container()
     col1, col2 = st.columns([5,20])
-    image = Image.open("/assets/logo.png")
+    image = Image.open("/interface/assets/logo.png")
     with title_container:
         with col1:
             st.image(image, width=64)
