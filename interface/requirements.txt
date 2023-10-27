@@ -1,4 +1,3 @@
 pypdf
-pillow
 streamlit
 firebase_admin
