@@ -1,3 +1,4 @@
 pypdf
 streamlit
+langchain
 firebase_admin

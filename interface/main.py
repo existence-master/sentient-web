@@ -3,10 +3,10 @@ from glob import glob
 import chat
 import requests
 import firebase_admin
-from PIL import Image
 import streamlit as st
 import linkedin_connect
 from firebase_admin import credentials, auth, firestore, storage
+from langchain.memory.chat_message_histories.firestore import FirestoreChatMessageHistory
 
 try:
     my_credentials = {
