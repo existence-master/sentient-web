@@ -93,7 +93,7 @@ def app():
             if response.status_code == 200:
                 print("POST request was successful!")
                 print("Response:", response.text)
-                ai_reply = json.dumps(response.text)
+                ai_reply = response.json
                 st.session_state["user_chat"].append(user_input)
                 st.session_state["ai_chat"].append(ai_reply)
             else:
