@@ -1,7 +1,6 @@
 import os
 import chat
 import requests
-from utils import *
 import firebase_admin
 from PIL import Image
 import streamlit as st

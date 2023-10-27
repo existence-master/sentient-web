@@ -1,4 +1,3 @@
-from utils import *
 from PIL import Image
 import streamlit as st
 import os

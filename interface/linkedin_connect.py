@@ -3,7 +3,6 @@ import chat
 import requests
 import streamlit as st
 from PIL import Image
-from utils import *
 from pypdf import PdfReader, PdfWriter
 
 def app():
