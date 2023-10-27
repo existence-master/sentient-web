@@ -97,7 +97,7 @@ def app():
                     else:
                         st.session_state.ai_chat.append(message["data"]["content"])
 
-                response = requests.post(f"{st.session_state.url}/initiate",data={"username" : st.session_state.username},headers = {"Content-Type" : "application/json"})
+                response = requests.post(f"{st.session_state.url}/initiate", json = {"username" : str(st.session_state.username)}, headers = {"Content-Type" : "application/json"})
 
                 if response.status_code == 200:
                     print("POST request was successful!")
