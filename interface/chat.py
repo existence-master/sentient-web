@@ -93,7 +93,7 @@ def app():
         if submit and user_input:
             response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
             if response.status_code == 200:
-                ai_reply = response.json()
+                ai_reply = response.text
                 st.session_state["user_chat"].append(user_input)
                 st.session_state["ai_chat"].append(ai_reply)
             else:
