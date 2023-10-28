@@ -59,8 +59,10 @@ def app():
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
             os.rmdir(st.session_state.username)
+            response = requests.post(f"{st.session_state.url}/terminate")
             for key in st.session_state.keys():
                 del st.session_state[key]
+            
             st.rerun()
         
         if st.button("Delete Account"):
@@ -91,8 +93,6 @@ def app():
         if submit and user_input:
             response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
             if response.status_code == 200:
-                print("POST request was successful!")
-                print("Response:", response.text)
                 ai_reply = response.json()
                 st.session_state["user_chat"].append(user_input)
                 st.session_state["ai_chat"].append(ai_reply)
