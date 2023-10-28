@@ -17,7 +17,7 @@ def app():
 
     if linkedin_profile is not None:
         merger = PdfWriter()
-        system = PdfReader("assets/context.pdf")
+        system = PdfReader("interface/assets/context.pdf")
         profile = PdfReader(linkedin_profile)
 
         text = ""
