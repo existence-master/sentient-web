@@ -90,29 +90,38 @@ def app():
 
                 st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 chat_history = db.collection("chat_histories").document(st.session_state.username).get().to_dict()
-
-                for message in chat_history["messages"] :
-                    if message["type"] == "human":
-                        st.session_state.user_chat.append(message["data"]["content"])
-                    else:
-                        st.session_state.ai_chat.append(message["data"]["content"])
+                
+                if chat_history["messages"]:
+                    for message in chat_history["messages"] :
+                        if message["type"] == "human":
+                            st.session_state.user_chat.append(message["data"]["content"])
+                        else:
+                            st.session_state.ai_chat.append(message["data"]["content"])
 
                 response = requests.post(f"{st.session_state.url}/initiate", json = {"username" : str(st.session_state.username)}, headers = {"Content-Type" : "application/json"})
 
                 if response.status_code == 200:
-                    print("POST request was successful!")
-                    print("Response:", response.text)
+                    st.session_state.runpage = chat.app
+                    st.rerun()
                 else:
-                    print("Request failed with status code:", response.status_code)
+                    for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+                        for name in files:
+                            os.remove(os.path.join(root, name))
+                        for name in dirs:
+                            os.rmdir(os.path.join(root, name))
+                    os.rmdir(st.session_state.username)
+                    os.rmdir(f"data/{st.session_state.username}")
+                    for key in st.session_state.keys():
+                        del st.session_state[key]
+                    raise Exception("Can't login, please try again")
 
-                st.session_state.runpage = chat.app
-                st.rerun()
             except Exception as e:
                 st.warning(e)
     else :
         username = st.text_input("Username : ")
         email = st.text_input("Email :")
         password = st.text_input("Password :", type = "password")
+
         if st.button("Signup") :
             try:
                 user = auth.create_user(email = email, password = password, uid = username)
