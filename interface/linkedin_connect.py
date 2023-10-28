@@ -28,7 +28,7 @@ def app():
             merger.append(pdf)       
 
         try:
-            os.mkdir(st.session_state.username)
+            os.mkdir(f"interface/{st.session_state.username}")
         except:
             pass
 
