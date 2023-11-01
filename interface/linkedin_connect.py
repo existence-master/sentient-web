@@ -65,7 +65,7 @@ def app():
                 context.delete()
                 db = st.session_state.db
                 db.collection("chat_histories").document(st.session_state.username).delete()
-                for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+                for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown=False):
                     for name in files:
                         os.remove(os.path.join(root, name))
                     for name in dirs:
