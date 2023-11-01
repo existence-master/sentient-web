@@ -77,14 +77,14 @@ def app():
                 db = st.session_state.db
                 bucket = st.session_state.bucket
                 os.mkdir(st.session_state.username)
-                profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
-                linkedin_profile = bucket.blob(profile_filepath)
+                profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
+                linkedin_profile = bucket.blob(f"{st.session_state.username}/linkedin_profile.pdf")
                 linkedin_profile.reload()
                 st.session_state.linkedin_profile = linkedin_profile
                 linkedin_profile.download_to_filename(profile_filepath)
 
-                context_filepath = f"{st.session_state.username}/context.pdf"
-                context = bucket.blob(context_filepath)
+                context_filepath = f"interface/{st.session_state.username}/context.pdf"
+                context = bucket.blob(f"{st.session_state.username}/context.pdf")
                 st.session_state.context = context
                 context.download_to_filename(context_filepath)
 
