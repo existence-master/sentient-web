@@ -30,7 +30,7 @@ def app():
         try:
             os.mkdir(f"interface/{st.session_state.username}")
         except Exception as e:
-            st.warning(e)
+            pass
 
         context_filepath = f"interface/{st.session_state.username}/context.pdf"     
         merger.write(context_filepath) 
@@ -70,8 +70,7 @@ def app():
                         os.remove(os.path.join(root, name))
                     for name in dirs:
                         os.rmdir(os.path.join(root, name))
-                os.rmdir(st.session_state.username)
-                os.rmdir(f"data/{st.session_state.username}")
+                os.rmdir(f"interface/{st.session_state.username}")
                 for key in st.session_state.keys():
                     del st.session_state[key]
                 raise Exception("Can't signup, please try again")
