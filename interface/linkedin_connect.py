@@ -17,7 +17,7 @@ def app():
 
     if linkedin_profile is not None:
         merger = PdfWriter()
-        system = PdfReader("interface/assets/context.pdf")
+        system = PdfReader("/interface/assets/context.pdf")
         profile = PdfReader(linkedin_profile)
 
         text = ""
@@ -28,13 +28,13 @@ def app():
             merger.append(pdf)       
 
         try:
-            os.mkdir(f"interface/{st.session_state.username}")
+            os.mkdir(f"/interface/{st.session_state.username}")
         except Exception as e:
             st.warning(e)
 
-        context_filepath = f"interface/{st.session_state.username}/context.pdf"     
+        context_filepath = f"/interface/{st.session_state.username}/context.pdf"     
         merger.write(context_filepath) 
-        profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
+        profile_filepath = f"/interface/{st.session_state.username}/linkedin_profile.pdf"
 
         with open(profile_filepath, "wb") as file:
             file.write(linkedin_profile.getbuffer())    
