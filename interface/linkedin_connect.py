@@ -43,9 +43,9 @@ def app():
         try:
             bucket = st.session_state.bucket
             profile_blob = bucket.blob(f"{st.session_state.username}/linkedin_profile.pdf")
-            profile_blob.upload_from_filename(f"{st.session_state.username}/linkedin_profile.pdf")
+            profile_blob.upload_from_filename(f"interface/{st.session_state.username}/linkedin_profile.pdf")
             context_blob = bucket.blob(f"{st.session_state.username}/context.pdf")
-            context_blob.upload_from_filename(f"{st.session_state.username}/context.pdf")
+            context_blob.upload_from_filename(f"interface/{st.session_state.username}/context.pdf")
             st.session_state.linkedin_profile = profile_blob
             st.session_state.context = context_blob
 
