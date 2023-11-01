@@ -29,8 +29,8 @@ def app():
 
         try:
             os.mkdir(f"interface/{st.session_state.username}")
-        except:
-            pass
+        except Exception as e:
+            st.warning(e)
 
         context_filepath = f"interface/{st.session_state.username}/context.pdf"     
         merger.write(context_filepath) 
