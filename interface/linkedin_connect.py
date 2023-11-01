@@ -67,6 +67,7 @@ def app():
                 db.collection("chat_histories").document(st.session_state.username).delete()
                 for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown=False):
                     for name in files:
+                        st.warning(os.path.join(root,name))
                         os.remove(os.path.join(root, name))
                     for name in dirs:
                         os.rmdir(os.path.join(root, name))
