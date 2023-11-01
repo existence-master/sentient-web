@@ -51,7 +51,7 @@ def app():
 
             response = requests.post(
                 f"{st.session_state.url}/initiate",
-                data={"username" : st.session_state.username},
+                json = {"username" : st.session_state.username},
                 headers = {"Content-Type" : "application/json"}
             )
 
