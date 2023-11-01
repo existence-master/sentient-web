@@ -9,11 +9,11 @@ def app():
     col1, col2 = st.columns([5,20])
     with title_container:
         with col1:
-            st.image("interface/assets/logo.png", width=64)
+            st.image("interface/assets/logo.png", width = 64)
         with col2:
             st.title("Sentient")
     
-    linkedin_profile = st.file_uploader("Upload your LinkedIn profile", type=["pdf"])
+    linkedin_profile = st.file_uploader("Upload your LinkedIn profile", type = ["pdf"])
 
     if linkedin_profile is not None:
         merger = PdfWriter()
@@ -65,9 +65,8 @@ def app():
                 context.delete()
                 db = st.session_state.db
                 db.collection("chat_histories").document(st.session_state.username).delete()
-                for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown=False):
+                for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                     for name in files:
-                        st.warning(os.path.join(root,name))
                         os.remove(os.path.join(root, name))
                     for name in dirs:
                         os.rmdir(os.path.join(root, name))

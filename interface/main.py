@@ -61,7 +61,7 @@ def app():
     col1, col2 = st.columns([5,20])
     with title_container:
         with col1:
-            st.image("interface/assets/logo.png", width=64)
+            st.image("interface/assets/logo.png", width = 64)
         with col2:
             st.title("Sentient")
 
@@ -104,13 +104,12 @@ def app():
                     st.session_state.runpage = chat.app
                     st.rerun()
                 else:
-                    for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+                    for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                         for name in files:
                             os.remove(os.path.join(root, name))
                         for name in dirs:
                             os.rmdir(os.path.join(root, name))
-                    os.rmdir(st.session_state.username)
-                    os.rmdir(f"data/{st.session_state.username}")
+                    os.rmdir(f"interface/{st.session_state.username}")
                     for key in st.session_state.keys():
                         del st.session_state[key]
                     raise Exception("Can't login, please try again")

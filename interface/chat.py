@@ -32,7 +32,8 @@ def app():
         new_linkedin_profile = st.file_uploader("Change your LinkedIn profile", type = ["pdf"])
 
         if st.button("Submit"):
-            profile_filepath = f"{st.session_state.username}/linkedin_profile.pdf"
+            profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
+
             with open(profile_filepath, "wb") as file:
                 file.write(new_linkedin_profile.getbuffer())
 
@@ -41,7 +42,7 @@ def app():
             for pdf in [profile]:
                 merger.append(pdf)       
 
-            context_filepath = f"{st.session_state.username}/context.pdf"     
+            context_filepath = f"interface/{st.session_state.username}/context.pdf"     
             merger.write(context_filepath) 
 
             linkedin_profile.upload_from_filename(profile_filepath)
@@ -49,16 +50,16 @@ def app():
             st.session_state.linkedin_profile = linkedin_profile
             st.session_state.context = context
             css = " .uploadedFiles {display: none;} "
-            st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+            st.markdown(f'<style>{css}</style>', unsafe_allow_html = True)
             st.rerun()
 
         if st.button("Logout"):
-            for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+            for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                 for name in files:
                     os.remove(os.path.join(root, name))
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
-            os.rmdir(st.session_state.username)
+            os.rmdir(f"interface/{st.session_state.username}")
             response = requests.post(f"{st.session_state.url}/terminate")
             for key in st.session_state.keys():
                 del st.session_state[key]
@@ -71,13 +72,12 @@ def app():
             context.delete()
             db = st.session_state.db
             db.collection("chat_histories").document(st.session_state.username).delete()
-            for root, dirs, files in os.walk(st.session_state.username, topdown=False):
+            for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                 for name in files:
                     os.remove(os.path.join(root, name))
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
-            os.rmdir(st.session_state.username)
-            os.rmdir(f"data/{st.session_state.username}")
+            os.rmdir(f"interface/{st.session_state.username}")
             for key in st.session_state.keys():
                 del st.session_state[key]
             st.rerun()
