@@ -32,26 +32,33 @@ def app():
         new_linkedin_profile = st.file_uploader("Change your LinkedIn profile", type = ["pdf"])
 
         if st.button("Submit"):
-            profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
+            try:
+                profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
 
-            with open(profile_filepath, "wb") as file:
-                file.write(new_linkedin_profile.getbuffer())
+                with open(profile_filepath, "wb") as file:
+                    file.write(new_linkedin_profile.getbuffer())
 
-            merger = PdfWriter()
-            profile = PdfReader(new_linkedin_profile)
-            for pdf in [profile]:
-                merger.append(pdf)       
+                merger = PdfWriter()
+                profile = PdfReader(new_linkedin_profile)
+                for pdf in [profile]:
+                    merger.append(pdf)       
 
-            context_filepath = f"interface/{st.session_state.username}/context.pdf"     
-            merger.write(context_filepath) 
+                context_filepath = f"interface/{st.session_state.username}/context.pdf"     
+                merger.write(context_filepath) 
 
-            linkedin_profile.upload_from_filename(profile_filepath)
-            context.upload_from_filename(context_filepath)
-            st.session_state.linkedin_profile = linkedin_profile
-            st.session_state.context = context
-            css = " .uploadedFiles {display: none;} "
-            st.markdown(f'<style>{css}</style>', unsafe_allow_html = True)
-            st.rerun()
+                linkedin_profile.upload_from_filename(profile_filepath)
+                context.upload_from_filename(context_filepath)
+                st.session_state.linkedin_profile = linkedin_profile
+                st.session_state.context = context
+                css = " .uploadedFiles {display: none;} "
+                st.markdown(f'<style>{css}</style>', unsafe_allow_html = True)
+                response = requests.post(f"{st.session_state.url}/initiate", json = {"username" : str(st.session_state.username)}, headers = {"Content-Type" : "application/json"})
+                if response.status_code == 200:
+                    st.rerun()
+                else:
+                    raise Exception("Can't update profile, right now, try again later")
+            except Exception as e:
+                st.warning(e)
 
         if st.button("Logout"):
             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
@@ -71,15 +78,20 @@ def app():
             linkedin_profile.delete()
             context.delete()
             db = st.session_state.db
+
             db.collection("chat_histories").document(st.session_state.username).delete()
             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                 for name in files:
                     os.remove(os.path.join(root, name))
                 for name in dirs:
                     os.rmdir(os.path.join(root, name))
+
             os.rmdir(f"interface/{st.session_state.username}")
+            response = requests.post(f"{st.session_state.url}/terminate")
+
             for key in st.session_state.keys():
                 del st.session_state[key]
+
             st.rerun()
 
     ai_container = st.container()
@@ -87,18 +99,20 @@ def app():
 
     with user_container:
         with st.form(key = "user_input_form", clear_on_submit = True):
-            user_input = st.text_input("Question: ", placeholder = "Ask about your LinkedIn profile", key='user_input')
+            user_input = st.text_input("Question: ", placeholder = "Start typing...", key='user_input')
             submit = st.form_submit_button(label = "Send")
 
         if submit and user_input:
-            response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
-            if response.status_code == 200:
-                ai_reply = response.text
-                st.session_state["user_chat"].append(user_input)
-                st.session_state["ai_chat"].append(ai_reply)
-            else:
-                print("Request failed with status code:", response.status_code)
-           
+            try:
+                response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
+                if response.status_code == 200:
+                    ai_reply = response.text
+                    st.session_state["user_chat"].append(user_input)
+                    st.session_state["ai_chat"].append(ai_reply)
+                else:
+                    raise Exception("Something went wrong, try sending another message or if the problem persists, try again later")
+            except Exception as e:
+                st.warning(e)
         
         if st.session_state["ai_chat"]:
             with ai_container:
