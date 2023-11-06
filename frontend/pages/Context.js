@@ -17,7 +17,7 @@ const Context = ({ pageScrollProgress }) => {
   const firstContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.3, 0.35, 0.4],
-    [400, 0, -75]
+    [100, 0, -55]
   );
 
   const firstContextOpacity = useTransform(
@@ -35,7 +35,7 @@ const Context = ({ pageScrollProgress }) => {
   const secondContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.3, 0.35, 0.4],
-    [-150, 0, 75]
+    [-100, 0, 50]
   );
 
   const secondContextOpacity = useTransform(
@@ -53,7 +53,7 @@ const Context = ({ pageScrollProgress }) => {
   const thirdContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.4, 0.45, 0.5],
-    [0, 100, 300]
+    [0, 100, 200]
   );
 
   const thirdContextOpacity = useTransform(
@@ -71,7 +71,7 @@ const Context = ({ pageScrollProgress }) => {
   const fourthContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
     [0.4, 0.45, 0.5],
-    [0, -100, -500]
+    [0, -100, -200]
   );
 
   const fourthContextOpacity = useTransform(
