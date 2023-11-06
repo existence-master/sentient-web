@@ -16,8 +16,8 @@ const Context = ({ pageScrollProgress }) => {
 
   const firstContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.3, 0.35, 0.4],
-    [100, 0, -55]
+    [0.3, 0.4],
+    [100, 0]
   );
 
   const firstContextOpacity = useTransform(
@@ -34,8 +34,8 @@ const Context = ({ pageScrollProgress }) => {
 
   const secondContextXSmall = useTransform(
     pageScrollProgress.scrollYProgress,
-    [0.3, 0.35, 0.4],
-    [-100, 0, 50]
+    [0.3, 0.4],
+    [-100, 0]
   );
 
   const secondContextOpacity = useTransform(
