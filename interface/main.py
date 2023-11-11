@@ -1,6 +1,6 @@
 import os
 from glob import glob
-import chat
+import casual_chat
 import requests
 import firebase_admin
 import streamlit as st
