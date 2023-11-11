@@ -16,6 +16,7 @@ def app():
     
     with st.sidebar:
         def on_page_change(key) :
+            current_page = st.session_state[key]
             if key == "LinkedIn Advice" :
                 st.session_state.runpage = linkedin_chat.app
                 st.rerun()
