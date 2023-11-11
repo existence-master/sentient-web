@@ -1,21 +1,22 @@
 import streamlit as st
 import os
+import casual_chat
+import linkedin_chat
 import requests
 from pypdf import PdfReader, PdfWriter
 from firebase_admin import auth
 from streamlit_option_menu import option_menu
-
 
 def app() :
 
     with st.sidebar:
         def on_page_change(key) :
             if key == "Chat" :
-                st.session_state.runpage = linkedin_chat.app
+                st.session_state.runpage = casual_chat.app
                 st.rerun()
 
             elif key == "LinkedIn Advice" :
-                st.session_state.runpage = settings.app
+                st.session_state.runpage = linkedin_chat.app
                 st.rerun()
 
             elif key == "Logout" :
