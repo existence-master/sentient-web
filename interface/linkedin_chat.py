@@ -15,7 +15,7 @@ def app():
     
     with st.sidebar:
         
-        selected = option_menu("Main Menu", ["Casual Chat", "LinkedIn Chat"], 
+        selected = option_menu("Main Menu", ["Chat", "LinkedIn Advice"], 
             icons=['house', 'gear'], menu_icon="cast", default_index=1)
         selected
 
