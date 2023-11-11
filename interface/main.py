@@ -76,7 +76,7 @@ def app():
                 st.session_state.username = user.uid
                 db = st.session_state.db
                 bucket = st.session_state.bucket
-                os.mkdir(st.session_state.username)
+                os.mkdir(f"interface/{st.session_state.username}")
                 profile_filepath = f"interface/{st.session_state.username}/linkedin_profile.pdf"
                 linkedin_profile = bucket.blob(f"{st.session_state.username}/linkedin_profile.pdf")
                 linkedin_profile.reload()
