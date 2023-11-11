@@ -44,8 +44,8 @@ if 'linkedin_profile' not in st.session_state:
 if 'context' not in st.session_state:
     st.session_state.context = None
 
-if 'chat_history' not in st.session_state:
-    st.session_state.chat_history = None 
+if 'global_chat_history' not in st.session_state:
+    st.session_state.global_chat_history = None 
 
 if 'ai_chat' not in st.session_state:
     st.session_state.ai_chat = []
