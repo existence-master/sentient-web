@@ -43,6 +43,21 @@ def app():
         menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear", "box-arrow-in-left"], menu_icon = "cast", default_index = 1, on_change = on_page_change, key = "menu")
         menu      
 
+        if st.button("Logout") :
+            for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
+                for name in files:
+                    os.remove(os.path.join(root, name))
+                for name in dirs:
+                    os.rmdir(os.path.join(root, name))
+
+            os.rmdir(f"interface/{st.session_state.username}")
+            requests.post(f"{st.session_state.url}/terminate")
+
+            for key in st.session_state.keys():
+                del st.session_state[key]    
+
+            st.rerun()
+
     ai_container = st.container()
     user_container = st.container()
 
