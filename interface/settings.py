@@ -3,17 +3,18 @@ import os
 import requests
 from pypdf import PdfReader, PdfWriter
 from firebase_admin import auth
+from streamlit_option_menu import option_menu
 
 
 def app() :
 
     with st.sidebar:
         def on_page_change(key) :
-            if key == "LinkedIn Advice" :
+            if key == "Chat" :
                 st.session_state.runpage = linkedin_chat.app
                 st.rerun()
 
-            elif key == "Settings" :
+            elif key == "LinkedIn Advice" :
                 st.session_state.runpage = settings.app
                 st.rerun()
 
@@ -37,7 +38,7 @@ def app() :
 
         menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear", "box-arrow-in-left"], menu_icon = "cast", default_index = 0, on_change = on_page_change)
         menu      
-        
+
     st.title(st.session_state.username)
     user = auth.get_user(st.session_state.username)
     email = st.text_input("Change email :", placeholder = user.email)
