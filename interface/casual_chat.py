@@ -19,11 +19,9 @@ def app():
             current_page = st.session_state[key]
             if current_page == "LinkedIn Advice" :
                 st.session_state.runpage = linkedin_chat.app
-                st.rerun()
 
             elif current_page == "Settings" :
                 st.session_state.runpage = settings.app
-                st.rerun()
 
             elif current_page == "Logout" :
                 for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
