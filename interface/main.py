@@ -47,11 +47,11 @@ if 'context' not in st.session_state:
 if 'global_chat_history' not in st.session_state:
     st.session_state.global_chat_history = None 
 
-if 'global_chat_history' not in st.session_state:
-    st.session_state.global_chat_history = None 
+if 'casual_chat_history' not in st.session_state:
+    st.session_state.casual_chat_history = None 
 
 if 'linked_chat_history' not in st.session_state:
-    st.session_state.global_chat_history = None 
+    st.session_state.linkedin_chat_history = None 
 
 if 'ai_chat' not in st.session_state:
     st.session_state.ai_chat = []
