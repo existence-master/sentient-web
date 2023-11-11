@@ -15,7 +15,9 @@ def app():
     
     with st.sidebar:
         
-        
+        selected = option_menu("Main Menu", ["Home", 'Settings'], 
+            icons=['house', 'gear'], menu_icon="cast", default_index=1)
+        selected
 
         if st.button("Logout"):
             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
