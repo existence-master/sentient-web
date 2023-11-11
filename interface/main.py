@@ -94,9 +94,9 @@ def app():
                 st.session_state.context = context
                 context.download_to_filename(context_filepath)
 
-                st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
+                st.session_state.casual_chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="casual_chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 chat_history = db.collection("chat_histories").document(st.session_state.username).get().to_dict()
-                
+
                 st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 chat_history = db.collection("chat_histories").document(st.session_state.username).get().to_dict()
                 
