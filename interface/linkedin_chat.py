@@ -15,6 +15,8 @@ def app():
     
     with st.sidebar:
         
+        def on_page_change(key) :
+            if
         menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon = "cast", default_index = 0, on_change = on_page_change)
         menu
 
