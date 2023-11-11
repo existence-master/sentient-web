@@ -20,7 +20,6 @@ def app():
     [data-testid=stSidebar] [data-testid=stSidebarContent] {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: space-between;
     }
     </style>
