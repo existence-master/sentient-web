@@ -59,6 +59,12 @@ if 'ai_chat' not in st.session_state:
 if 'user_chat' not in st.session_state:
     st.session_state.user_chat = [] 
 
+if 'casual_ai_chat' not in st.session_state:
+    st.session_state.casual_ai_chat = []
+
+if 'casual_user_chat' not in st.session_state:
+    st.session_state.casual_user_chat = [] 
+
 if 'url' not in st.session_state:
     st.session_state.url = "https://helpful-boxer-wrongly.ngrok-free.app" 
 
