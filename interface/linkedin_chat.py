@@ -32,7 +32,7 @@ def app():
                         os.remove(os.path.join(root, name))
                     for name in dirs:
                         os.rmdir(os.path.join(root, name))
-                        
+
                 os.rmdir(f"interface/{st.session_state.username}")
                 requests.post(f"{st.session_state.url}/terminate")
 
@@ -49,27 +49,6 @@ def app():
 
         if st.button("Logout"):
             
-        
-        if st.button("Delete Account"):
-            auth.delete_user(st.session_state.username)
-            linkedin_profile.delete()
-            context.delete()
-            db = st.session_state.db
-
-            db.collection("chat_histories").document(st.session_state.username).delete()
-            for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
-                for name in files:
-                    os.remove(os.path.join(root, name))
-                for name in dirs:
-                    os.rmdir(os.path.join(root, name))
-
-            os.rmdir(f"interface/{st.session_state.username}")
-            response = requests.post(f"{st.session_state.url}/terminate")
-
-            for key in st.session_state.keys():
-                del st.session_state[key]
-
-            st.rerun()
 
     ai_container = st.container()
     user_container = st.container()
