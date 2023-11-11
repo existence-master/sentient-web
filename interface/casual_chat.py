@@ -56,7 +56,8 @@ def app():
             for key in st.session_state.keys():
                 del st.session_state[key]    
 
-       
+            st.rerun()
+            
     ai_container = st.container()
     user_container = st.container()
 
