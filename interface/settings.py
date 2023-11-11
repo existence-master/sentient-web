@@ -6,6 +6,8 @@ from firebase_admin import auth
 
 
 def app() :
+
+    
     st.title(st.session_state.username)
     user = auth.get_user(st.session_state.username)
     email = st.text_input("Change email :", placeholder = user.email)
