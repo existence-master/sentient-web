@@ -103,9 +103,15 @@ def app():
                 if casual_chat_history["messages"]:
                     for message in casual_chat_history["messages"] :
                         if message["type"] == "human":
-                            st.session_state.user_chat.append(message["data"]["content"])
+                            st.session_state.casual_user_chat.append(message["data"]["content"])
                         else:
-                            st.session_state.ai_chat.append(message["data"]["content"])
+                            st.session_state.casual_ai_chat.append(message["data"]["content"])
+                if casual_chat_history["messages"]:
+                    for message in casual_chat_history["messages"] :
+                        if message["type"] == "human":
+                            st.session_state.casual_user_chat.append(message["data"]["content"])
+                        else:
+                            st.session_state.casual_ai_chat.append(message["data"]["content"])
 
                 response = requests.post(f"{st.session_state.url}/initiate", json = {"username" : str(st.session_state.username)}, headers = {"Content-Type" : "application/json"})
 
