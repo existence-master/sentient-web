@@ -47,7 +47,7 @@ def app():
         menu  
 
         if st.button("Logout") :
-             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
+            for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                 for name in files:
                     os.remove(os.path.join(root, name))
                 for name in dirs:
@@ -58,7 +58,7 @@ def app():
 
             for key in st.session_state.keys():
                 del st.session_state[key]    
-
+        
        
     ai_container = st.container()
     user_container = st.container()
