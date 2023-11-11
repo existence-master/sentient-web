@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import casual_chat
 import requests
 from streamlit_option_menu import option_menu
 from firebase_admin import  auth
