@@ -24,6 +24,8 @@ def app():
             elif key == "Settings" :
                 st.session_state.runpage = settings.app
                 st.rerun()
+            elif key == "Logout" :
+                
             else :
                 pass
 
