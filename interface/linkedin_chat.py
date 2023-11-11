@@ -26,10 +26,10 @@ def app():
                 st.rerun()
             elif key == "Logout" :
                 for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
-                for name in files:
-                    os.remove(os.path.join(root, name))
-                for name in dirs:
-                    os.rmdir(os.path.join(root, name))
+                    for name in files:
+                        os.remove(os.path.join(root, name))
+                    for name in dirs:
+                        os.rmdir(os.path.join(root, name))
                 os.rmdir(f"interface/{st.session_state.username}")
                 response = requests.post(f"{st.session_state.url}/terminate")
                 for key in st.session_state.keys():
