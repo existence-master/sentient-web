@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import requests
-from pypdf import PdfReader, PdfWriter
 from firebase_admin import auth
 
 def app():
@@ -15,7 +14,6 @@ def app():
     
     with st.sidebar:
         
-
         if st.button("Logout"):
             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                 for name in files:
