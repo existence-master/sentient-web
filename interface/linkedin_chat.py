@@ -21,22 +21,26 @@ def app():
             if key == "Chat" :
                 st.session_state.runpage = casual_chat.app
                 st.rerun()
+
             elif key == "Settings" :
                 st.session_state.runpage = settings.app
                 st.rerun()
+
             elif key == "Logout" :
                 for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
                     for name in files:
                         os.remove(os.path.join(root, name))
                     for name in dirs:
                         os.rmdir(os.path.join(root, name))
+                        
                 os.rmdir(f"interface/{st.session_state.username}")
                 requests.post(f"{st.session_state.url}/terminate")
-                
+
                 for key in st.session_state.keys():
                     del st.session_state[key]
                 
                 st.rerun()
+
             else :
                 pass
 
