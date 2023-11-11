@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import requests
 from pypdf import PdfReader, PdfWriter
-from firebase_admin import  auth
+from firebase_admin import auth
 
 def app():
     title_container = st.container()
