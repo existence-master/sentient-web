@@ -55,11 +55,11 @@ def app():
 
         if submit and user_input:
             try:
-                response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
+                response = requests.post(f"{st.session_state.url}/casual_chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
                 if response.status_code == 200:
                     ai_reply = response.text
-                    st.session_state["user_chat"].append(user_input)
-                    st.session_state["ai_chat"].append(ai_reply)
+                    st.session_state["casual_user_chat"].append(user_input)
+                    st.session_state["casual_ai_chat"].append(ai_reply)
                 else:
                     raise Exception("Something went wrong, try sending another message or if the problem persists, try again later")
             except Exception as e:
