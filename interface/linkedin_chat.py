@@ -20,6 +20,8 @@ def app():
             if key == "Chat" :
                 st.session_state.runpage = casual_chat.app
                 st.rerun()
+            elif key == "LinkedIn Advice" :
+                st.session_state.runpage = linked
 
         menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon = "cast", default_index = 0, on_change = on_page_change)
         menu
