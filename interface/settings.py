@@ -8,7 +8,6 @@ from firebase_admin import auth
 from streamlit_option_menu import option_menu
 
 def app() :
-
     with st.sidebar:
         def on_page_change(key) :
             current_page = st.session_state[key]
