@@ -4,7 +4,6 @@ import casual_chat
 import requests
 import settings
 from streamlit_option_menu import option_menu
-from firebase_admin import auth
 
 def app():
     title_container = st.container()
