@@ -1,5 +1,5 @@
 import os
-import chat
+import casual_chat
 import requests
 import streamlit as st
 from pypdf import PdfReader, PdfWriter
