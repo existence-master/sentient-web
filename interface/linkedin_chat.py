@@ -15,7 +15,6 @@ def app():
             st.title("Sentient")
     
     with st.sidebar:
-        
         def on_page_change(key) :
             if key == "Chat" :
                 st.session_state.runpage = casual_chat.app
