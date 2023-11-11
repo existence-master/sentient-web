@@ -52,7 +52,7 @@ def app():
 
     with user_container:
         with st.form(key = "user_input_form", clear_on_submit = True):
-            user_input = st.text_input("Question: ", placeholder = "Start typing...", key='user_input')
+            user_input = st.text_input("Question: ", placeholder = "Start typing...", key="user_input")
             submit = st.form_submit_button(label = "Send")
 
         if submit and user_input:
