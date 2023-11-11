@@ -40,6 +40,7 @@ def app():
                 pass
         
         st.title(f"Hello {st.session_state.username}")
+        
         menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon = "cast", default_index = 0, on_change = on_page_change, key = "menu")
         menu  
 
