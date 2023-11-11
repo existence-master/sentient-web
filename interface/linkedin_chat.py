@@ -64,6 +64,7 @@ def app():
                     st.session_state["ai_chat"].append(ai_reply)
                 else:
                     raise Exception("Something went wrong, try sending another message or if the problem persists, try again later")
+                
             except Exception as e:
                 st.warning(e)
         
