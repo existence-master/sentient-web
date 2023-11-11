@@ -15,7 +15,7 @@ def app():
     
     with st.sidebar:
         
-        selected = option_menu("Menu", ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon="cast", default_index=0)
+        selected = option_menu("Menu", ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon = "cast", default_index = 0)
 
         if st.button("Logout"):
             for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
