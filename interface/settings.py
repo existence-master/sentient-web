@@ -37,7 +37,7 @@ def app() :
             else :
                 pass
 
-        menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear", "box-arrow-in-left"], menu_icon = "cast", default_index = 2, on_change = on_page_change)
+        menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear", "box-arrow-in-left"], menu_icon = "cast", default_index = 2, on_change = on_page_change, key = "menu")
         menu      
 
     st.title(st.session_state.username)
