@@ -123,7 +123,7 @@ def app():
                 response = requests.post(f"{st.session_state.url}/initiate", json = {"username" : str(st.session_state.username)}, headers = {"Content-Type" : "application/json"})
 
                 if response.status_code == 200:
-                    st.session_state.runpage = chat.app
+                    st.session_state.runpage = casual_chat.app
                     st.rerun()
                 else:
                     for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
