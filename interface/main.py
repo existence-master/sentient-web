@@ -97,7 +97,7 @@ def app():
                 st.session_state.casual_chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="casual_chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 casual_chat_history = db.collection("casual_chat_histories").document(st.session_state.username).get().to_dict()
 
-                st.session_state.chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="linkedin_chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
+                st.session_state.linkedin_chat_history = FirestoreChatMessageHistory(firestore_client=st.session_state.db, collection_name="linkedin_chat_histories", session_id = st.session_state.username , user_id=st.session_state.username)
                 linkedin_chat_history = db.collection("linkedin_chat_histories").document(st.session_state.username).get().to_dict()
                 
                 if casual_chat_history["messages"]:
@@ -106,7 +106,7 @@ def app():
                             st.session_state.casual_user_chat.append(message["data"]["content"])
                         else:
                             st.session_state.casual_ai_chat.append(message["data"]["content"])
-                            
+
                 if casual_chat_history["messages"]:
                     for message in casual_chat_history["messages"] :
                         if message["type"] == "human":
