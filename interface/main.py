@@ -110,7 +110,7 @@ def app():
                 if linkedin_chat_history["messages"]:
                     for message in linkedin_chat_history["messages"] :
                         if message["type"] == "human":
-                            st.session_state.casual_user_chat.append(message["data"]["content"])
+                            st.session_state.linkedin_user_chat.append(message["data"]["content"])
                         else:
                             st.session_state.linkedin_ai_chat.append(message["data"]["content"])
 
