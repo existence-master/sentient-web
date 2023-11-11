@@ -17,7 +17,7 @@ def app():
     st.markdown(
     """
     <style>
-    [data-testid=stSidebar] [data-testid=stSidebarContent] {
+    [data-testid=stSidebar] {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
