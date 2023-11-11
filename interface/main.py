@@ -106,6 +106,7 @@ def app():
                             st.session_state.casual_user_chat.append(message["data"]["content"])
                         else:
                             st.session_state.casual_ai_chat.append(message["data"]["content"])
+                            
                 if casual_chat_history["messages"]:
                     for message in casual_chat_history["messages"] :
                         if message["type"] == "human":
