@@ -73,6 +73,6 @@ def app():
             with ai_container:
                 for i in range(len(st.session_state["linkedin_ai_chat"])):
                     user_message = st.chat_message(name = "user")
-                    user_message.write(st.session_state["user_chat"][i])
+                    user_message.write(st.session_state["linkedin_user_chat"][i])
                     ai_message = st.chat_message(name = "ai")
-                    ai_message.write(st.session_state["ai_chat"][i])
+                    ai_message.write(st.session_state["linkedin_ai_chat"][i])
