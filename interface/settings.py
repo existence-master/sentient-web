@@ -15,11 +15,9 @@ def app() :
 
             if current_page == "Chat" :
                 st.session_state.runpage = casual_chat.app
-                st.rerun()
 
             elif current_page == "LinkedIn Advice" :
                 st.session_state.runpage = linkedin_chat.app
-                st.rerun()
 
             elif current_page == "Logout" :
                 for root, dirs, files in os.walk(f"interface/{st.session_state.username}", topdown = False):
@@ -33,8 +31,6 @@ def app() :
 
                 for key in st.session_state.keys():
                     del st.session_state[key]
-                
-                st.rerun()
 
             else :
                 pass
