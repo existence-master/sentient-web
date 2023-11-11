@@ -53,11 +53,11 @@ if 'casual_chat_history' not in st.session_state:
 if 'linked_chat_history' not in st.session_state:
     st.session_state.linkedin_chat_history = None 
 
-if 'ai_chat' not in st.session_state:
-    st.session_state.ai_chat = []
+if 'linkedin_ai_chat' not in st.session_state:
+    st.session_state.linkedin_ai_chat = []
 
-if 'user_chat' not in st.session_state:
-    st.session_state.user_chat = [] 
+if 'linkedin_user_chat' not in st.session_state:
+    st.session_state.linkedin_user_chat = [] 
 
 if 'casual_ai_chat' not in st.session_state:
     st.session_state.casual_ai_chat = []
