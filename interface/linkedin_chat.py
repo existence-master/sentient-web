@@ -15,8 +15,7 @@ def app():
     
     with st.sidebar:
         
-        selected = option_menu("Menu", ["Chat", "LinkedIn Advice", "Settings"], 
-            icons=["chat-fill", "linkedin", "gear"], menu_icon="cast", default_index=1)
+        selected = option_menu("Menu", ["Chat", "LinkedIn Advice", "Settings"], icons=["chat-fill", "linkedin", "gear"], menu_icon="cast", default_index=1)
         selected
 
         if st.button("Logout"):
