@@ -27,7 +27,7 @@ def app():
             else :
                 pass
 
-        menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear"], menu_icon = "cast", default_index = 0, on_change = on_page_change)
+        menu = option_menu(None, ["Chat", "LinkedIn Advice", "Settings", "Logout"], icons=["chat-fill", "linkedin", "gear", "box-arrow-in-left"], menu_icon = "cast", default_index = 0, on_change = on_page_change)
         menu
 
         if st.button("Logout"):
