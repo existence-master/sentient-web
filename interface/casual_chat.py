@@ -14,6 +14,19 @@ def app():
         with col2:
             st.title("Sentient")
     
+    st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+    
     with st.sidebar:
         def on_page_change(key) :
             current_page = st.session_state[key]
