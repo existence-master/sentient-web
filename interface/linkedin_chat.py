@@ -58,7 +58,7 @@ def app():
         if submit and user_input:
             try:
                 response = requests.post(f"{st.session_state.url}/chat", json = {"input": str(user_input)}, headers = {"Content-Type" : "application/json"})
-                
+
                 if response.status_code == 200:
                     ai_reply = response.text
                     st.session_state["user_chat"].append(user_input)
@@ -69,9 +69,9 @@ def app():
             except Exception as e:
                 st.warning(e)
         
-        if st.session_state["ai_chat"]:
+        if st.session_state["linkedin_ai_chat"]:
             with ai_container:
-                for i in range(len(st.session_state["ai_chat"])):
+                for i in range(len(st.session_state["linkedin_ai_chat"])):
                     user_message = st.chat_message(name = "user")
                     user_message.write(st.session_state["user_chat"][i])
                     ai_message = st.chat_message(name = "ai")
