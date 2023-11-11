@@ -16,6 +16,8 @@ def app():
     
     with st.sidebar:
         def on_page_change(key) :
+            current_page = st.session_state[key]
+            
             if key == "Chat" :
                 st.session_state.runpage = casual_chat.app
                 st.rerun()
