@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import settings
 import requests
 import linkedin_chat
 from streamlit_option_menu import option_menu
