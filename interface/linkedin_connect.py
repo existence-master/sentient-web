@@ -56,7 +56,7 @@ def app():
             )
 
             if response.status_code == 200:
-                st.session_state.runpage = chat.app
+                st.session_state.runpage = casual_chat.app
                 st.rerun()
             else:
                 linkedin_profile = st.session_state.linkedin_profile
