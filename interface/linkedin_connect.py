@@ -20,9 +20,9 @@ def app():
        # system = PdfReader("interface/assets/context.pdf")
         profile = PdfReader(linkedin_profile)
 
-        text = ""
-        for page in profile.pages:
-            text += page.extract_text()
+        # text = ""
+        # for page in profile.pages:
+        #     text += page.extract_text()
 
         for pdf in [system, profile]:
             merger.append(pdf)       
