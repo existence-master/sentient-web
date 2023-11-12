@@ -24,7 +24,7 @@ def app():
         # for page in profile.pages:
         #     text += page.extract_text()
 
-        for pdf in [system, profile]:
+        for pdf in [profile]:
             merger.append(pdf)       
 
         try:
