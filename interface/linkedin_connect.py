@@ -20,7 +20,7 @@ def app():
         tips = PdfReader("interface/assets/linkedin-tips.pdf")
         profile = PdfReader(linkedin_profile)
 
-        for pdf in [profile]:
+        for pdf in [profile, tips]:
             merger.append(pdf)       
 
         try:
