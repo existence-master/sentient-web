@@ -1,0 +1,5 @@
+pypdf
+streamlit
+langchain
+firebase_admin
+streamlit-option-menu
