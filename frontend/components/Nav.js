@@ -26,7 +26,7 @@ const Nav = () => {
         <Link href="https://existence-sentient.streamlit.app">
           <motion.button
             whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
-            className="bg-gradient-to-b from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white">
+            className="bg-gradient-to-b  from-[#9E00D1] to-[#4E31FF] lg:p-4 sm::p-3 xs:p-2 rounded-[12px] font-Montserrat font-semibold lg:text-lg sm:text-md xs:text-sm text-white z-10">
             try out now
           </motion.button>
         </Link>

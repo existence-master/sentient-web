@@ -120,7 +120,7 @@ const Context = ({ pageScrollProgress }) => {
           </h4>
         </motion.div>
       </div>
-      <div className="fixed top-0 flex w-screen justify-center items-center h-screen sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16 xs:max-sm:gap-[50px]">
+      <div className="xs:max-sm:hidden fixed top-0 flex w-screen justify-center items-center h-screen sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16 xs:max-sm:gap-[50px]">
         <motion.div
           style={{ x: fourthContextXLarge, opacity: fourthContextOpacity }}
           className="flex sm:w-1/2 flex-col sm:items-start xs:items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]"
@@ -147,7 +147,7 @@ const Context = ({ pageScrollProgress }) => {
         </motion.div>
       </div>
       <motion.div
-        className="fixed top-0 w-screen flex flex-col h-screen justify-center items-center"
+        className="xs:max-sm:hidden fixed top-0 w-screen flex flex-col h-screen justify-center items-center"
         style={{ opacity: fifthContextOpacity }}
       >
         <Image
@@ -196,7 +196,7 @@ const Context = ({ pageScrollProgress }) => {
           </h4>
         </motion.div>
       </div>
-      <div className="fixed top-0 flex w-screen justify-center items-center h-screen sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16 xs:max-sm:gap-[50px]">
+      <div className="sm:hidden fixed top-0 flex w-screen justify-center items-center h-screen sm:flex-row xs:flex-col-reverse lg:ml-20 sm:ml-16 xs:max-sm:gap-[50px]">
         <motion.div
           style={{ x: fourthContextXSmall, opacity: fourthContextOpacity }}
           className="flex sm:w-1/2 flex-col sm:items-start xs:items-center justify-center lg:gap-[20px] sm:gap-[15px] xs:gap-[10px]"
@@ -223,7 +223,7 @@ const Context = ({ pageScrollProgress }) => {
         </motion.div>
       </div>
       <motion.div
-        className="fixed top-0 w-screen flex flex-col h-screen justify-center items-center"
+        className="sm:hidden fixed top-0 w-screen flex flex-col h-screen justify-center items-center"
         style={{ opacity: fifthContextOpacity }}
       >
         <Image
