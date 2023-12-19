@@ -1,4 +1,4 @@
-![Github Web Banner](/public/banner.png)
+![Github Web Banner](/github/assets/sentient-web-banner.png)
 
 The official web platform of Sentient. Currently, just a landing page to showcase the concept and attract early adopters
 
