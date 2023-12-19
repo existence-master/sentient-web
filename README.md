@@ -45,7 +45,7 @@ Visit the site and enter your email in the section at the bottom. Congrats, you 
          <br />
          <sub>
            <b>
-             adi-uchiha
+             abhijeetsuryawanshi12
            </b>
          </sub>
        </a>
