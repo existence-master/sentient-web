@@ -1,4 +1,4 @@
-![Github Web Banner](/github/assets/sentient-web-banner.png)
+![Github Web Banner](./github/assets/banner.png)
 
 The official web platform of Sentient. Currently, just a landing page to showcase the concept and attract early adopters
 
@@ -35,6 +35,21 @@ Visit the site and enter your email in the section at the bottom. Congrats, you 
        <a title="Design">
          🎨
        </a> 
+       <a title="Code">
+         💻
+       </a>
+     </td>  
+         <td align="center">
+       <a href="https://github.com/abhijeetsuryawanshi12">
+         <img src="https://avatars.githubusercontent.com/u/108229267?v=4" width="100px;" alt=""/>
+         <br />
+         <sub>
+           <b>
+             adi-uchiha
+           </b>
+         </sub>
+       </a>
+       <br />
        <a title="Code">
          💻
        </a>
