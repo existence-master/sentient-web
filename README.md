@@ -11,7 +11,7 @@ The official web platform of Sentient. Currently, just a landing page to showcas
 
 ## Become an early adopter
 
-Visit the site and enter your email in the section at the bottom. Congrats, you just joined the waitlist
+Glad to see that you are excited about Sentient. You can reach us at our [mail](mailto:existence-sentient@gmail.com)
 
 ## Team
 
@@ -94,7 +94,7 @@ Visit the site and enter your email in the section at the bottom. Congrats, you 
 
 ## Contribute
 
-As you can see, the landing page clearly needs improvements. If you agree to the Sentient philosophy and are interested in contributing, contact [@itsskofficial](https://github.com/itsskofficial) at any of the following links
+If you agree to the Sentient philosophy and are interested in contributing, contact [@itsskofficial](https://github.com/itsskofficial) at any of the following links
 
 [![SK's LinkedIn](https://img.shields.io/badge/LinkedIn-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/sarthak-karandikar-0223b7228/)
 [![SK's Mail](https://img.shields.io/badge/Gmail-informational?style=flat&logo=gmail&logoColor=white&color=EA4335)](mailto:itsskofficial03@gmail.com)
