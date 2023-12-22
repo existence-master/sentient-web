@@ -4,9 +4,9 @@ The official web platform of Sentient. Currently, just a landing page to showcas
 
 ## Progress 
 
-- [x] Start working on MVP design https://github.com/existence-sentient/sentient-web/issues/6
-- [ ] Improve the landing page https://github.com/existence-sentient/sentient-web/issues/5
-- [ ] Build basic MVP by integrating LinkedIn https://github.com/existence-sentient/sentient-web/issues/7
+- [x] Build basic MVP by integrating LinkedIn https://github.com/existence-sentient/sentient-web/issues/7
+- [ ] Fine tune casual model with 100 profiles dataset https://github.com/existence-sentient/sentient-web/issues/8
+- [ ] Fine tune LinkedIn model with 100 profiles dataset https://github.com/existence-sentient/sentient-web/issues/9
 
 
 ## Become an early adopter
